@@ -19,13 +19,18 @@ const UTM = `utm_source=${encodeURIComponent(brand.name.toLowerCase().replace(/\
 // Track which photos each build uses, so the credits page lists exactly those.
 export const usedPhotos = new Set();
 
+// Photos come from Unsplash (default) or Pexels (`source: 'pexels'`); both
+// CDNs resize and crop on the fly from URL parameters.
 function photoSrc(p, w, h) {
+  if (p.source === 'pexels') {
+    return `${p.raw}?auto=compress&cs=tinysrgb&w=${w}${h ? `&h=${h}&fit=crop` : ''}`;
+  }
   const crop = h ? `&h=${h}&fit=crop&crop=entropy` : '&fit=max';
   return `${p.raw}?auto=format&q=70&w=${w}${crop}`;
 }
 
 /**
- * Responsive, credited Unsplash photo.
+ * Responsive, credited photo (Unsplash or Pexels).
  * @param {string} key   key in src/data/photos.mjs
  * @param {object} opts  { ratio: [w,h] crop ratio, sizes, eager, caption, className }
  */
@@ -49,6 +54,9 @@ export function photo(key, opts = {}) {
 }
 
 export function credit(p) {
+  if (p.source === 'pexels') {
+    return `<span class="credit">Photo: <a href="https://www.pexels.com/@${p.username}/">${esc(p.user)}</a> on <a href="https://www.pexels.com/photo/${p.id}/">Pexels</a></span>`;
+  }
   return `<span class="credit">Photo: <a href="https://unsplash.com/@${p.username}?${UTM}">${esc(p.user)}</a> on <a href="https://unsplash.com/photos/${p.id}?${UTM}">Unsplash</a></span>`;
 }
 
@@ -154,6 +162,7 @@ export function page({ path, title, description, body, image = 'vf-hero', bodyCl
 <meta property="og:image" content="${photoUrl(image)}">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://images.unsplash.com">
+<link rel="preconnect" href="https://images.pexels.com">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <script>document.documentElement.classList.add('js')</script>
 <link rel="stylesheet" href="/styles.css?v=__BUILD__">

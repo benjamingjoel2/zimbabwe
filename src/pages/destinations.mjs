@@ -1,8 +1,16 @@
-import { page, photo, pageHead, cta, esc } from '../layout.mjs';
+import { page, photo, photoMeta, pageHead, cta, esc } from '../layout.mjs';
 import destinations from '../data/destinations.mjs';
 import stays from '../data/stays.mjs';
 
 const bySlug = Object.fromEntries(destinations.map((d) => [d.slug, d]));
+
+// Short caption from a photo's recorded location: "Livingstone, Zambia",
+// "Hwange" (the country is left off when it is Zimbabwe).
+const placeCaption = (key) => {
+  const parts = photoMeta(key).location.split(',').map((s) => s.trim());
+  const country = parts.length > 1 ? parts[parts.length - 1] : '';
+  return country && country !== 'Zimbabwe' ? `${parts[0]}, ${country}` : parts[0];
+};
 
 // Drawn panels for places without a location-verified photo. Simple shapes in
 // the brand palette: coursed stone with a chevron band for Great Zimbabwe,
@@ -90,7 +98,7 @@ ${
   d.gallery.length
     ? `<section class="section-tight wrap">
   <h2 class="visually-hidden">Photos</h2>
-  <div class="grid grid-3">${d.gallery.map((k) => photo(k, { ratio: [3, 2], sizes: '(min-width: 64rem) 33vw, (min-width: 40rem) 50vw, 100vw' })).join('')}</div>
+  <div class="grid grid-3">${d.gallery.map((k) => photo(k, { ratio: [3, 2], sizes: '(min-width: 64rem) 33vw, (min-width: 40rem) 50vw, 100vw', caption: esc(placeCaption(k)) })).join('')}</div>
 </section>`
     : ''
 }

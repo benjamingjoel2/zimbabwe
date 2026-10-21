@@ -138,10 +138,12 @@ The hour-by-hour walking and canoe days on the Guiding page are typical examples
 
 ## Photos
 
-Each photo's Unsplash location field was checked against the place it is used for (October 2026). `src/data/photos.mjs` holds the location text as recorded on Unsplash. Recheck before launch:
+Each photo's recorded location on Unsplash or Pexels was checked against the place it is used for (October 2026). `src/data/photos.mjs` holds the location text as recorded on the photo's page. Recheck before launch:
 
-- ☐ Each photo is still available on Unsplash under the Unsplash License, and is not an Unsplash+ (paid) image.
+- ☐ Each photo is still available under its site's free license (Unsplash License or Pexels License), and no Unsplash photo is an Unsplash+ (paid) image.
+- ☐ `vf-gorge-zambia` (Pexels) is recorded at Livingstone, Zambia, and is used only as a Zambia-side view.
+- ☐ `eh-bauhinia` (Pexels) is recorded in Mutare, the town at the edge of the Bvumba; it is used only in the general Eastern Highlands gallery.
 - ☐ `vf-zambia-side` is recorded on Unsplash as "Victoria Falls (Zambian Side)" and is used only for the Zambia side.
 - ☐ Photos captioned only "Zimbabwe" on Unsplash (`zim-elephants-line`, `zim-map`) are used only in general, country-wide contexts, never for a specific place.
 - ☐ `zambezi-canoe` is located only as "Zambezi River" on Unsplash and is captioned "On the Zambezi", not as Mana Pools.
-- ☐ Great Zimbabwe and Gonarezhou have no photo: no free Unsplash photo with a matching location was found. They show drawings instead.
+- ☐ Great Zimbabwe and Gonarezhou have no photo: no free Unsplash or Pexels photo with a matching location was found. They show drawings instead.

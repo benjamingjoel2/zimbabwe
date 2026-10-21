@@ -73,13 +73,19 @@ The site deliberately quotes **no fee amounts** and **no visa prices**. It point
 
 ### Photos
 
-All photos are from [Unsplash](https://unsplash.com), hot-linked from `images.unsplash.com` with responsive sizes, and credited under every image and on `/credits/`. The rule: **a photo is used only if its Unsplash location matches the place it illustrates.** To add one:
+Photos come from [Unsplash](https://unsplash.com) and [Pexels](https://www.pexels.com). They are hot-linked from `images.unsplash.com` and `images.pexels.com` with responsive sizes, and credited under every image and on `/credits/`. The rule: **a photo is used only if the location recorded on its Unsplash or Pexels page matches the place it illustrates.** To add one:
 
-1. Open the photo on Unsplash and check its location (shown under the photo). It must name the place you're using it for. A photo located only as "Zimbabwe" is for general use only. Don't use Unsplash+ (paid) photos.
-2. Add an entry to `src/data/photos.mjs`: the photo id, photographer name and username, the location exactly as Unsplash shows it, the `raw` image URL (`https://images.unsplash.com/photo-…`, without the query string) and your own descriptive `alt` text.
+1. Open the photo's page and check its location (Unsplash shows it under the photo; on Pexels it is in the photo details). It must name the place you're using it for. A photo located only as "Zimbabwe" or a province is for general use only. Don't use Unsplash+ (paid) photos.
+2. Add an entry to `src/data/photos.mjs`:
+   - the photo id
+   - the photographer's name and username (on Pexels, the profile slug after `/@`)
+   - the location exactly as the site shows it
+   - the image URL without its query string: `https://images.unsplash.com/photo-…`, or `https://images.pexels.com/photos/…/pexels-photo-….jpeg`
+   - your own descriptive `alt` text
+   - for Pexels, `source: 'pexels'`
 3. Use it in a page with `photo('your-key', { ratio: [3, 2], caption: '…' })`. The credit is added automatically.
 
-No free Unsplash photo with a matching location could be found for **Great Zimbabwe** or **Gonarezhou**, so those pages show drawn panels instead (see `drawings` in `src/pages/destinations.mjs`). Replace them when a verified photo is available. Set `photo` and `gallery` in `src/data/destinations.mjs`.
+No free photo with a matching location could be found on either site for **Great Zimbabwe** or **Gonarezhou**, so those pages show drawn panels instead (see `drawings` in `src/pages/destinations.mjs`). Replace them when a verified photo is available: set `photo` and `gallery` in `src/data/destinations.mjs`.
 
 ### Enquiry form
 
@@ -97,6 +103,6 @@ Any static host works: upload the contents of `dist/`.
 ## Standards the site holds to
 
 - **Mobile first.** Base styles are for phones, with layouts added at wider breakpoints. No horizontal scrolling at 360px except inside data tables.
-- **Fast.** No web fonts (system font stacks), one small CSS file, one small deferred script (about 5 KB). Images are responsive (`srcset`), lazy-loaded below the fold, and served by Unsplash's CDN in modern formats.
+- **Fast.** No web fonts (system font stacks), one small CSS file, one small deferred script (about 5 KB). Images are responsive (`srcset`), lazy-loaded below the fold, and served by the Unsplash and Pexels CDNs, compressed and resized.
 - **Accessible.** WCAG AA contrast checked automatically; semantic HTML with landmarks and a skip link; visible focus styles; keyboard-usable menu and chart; the Victoria Falls chart has a data table equivalent; form fields have labels and error messages.
 - **Honest.** No invented reviews, testimonials, press logos, awards or memberships. Stay names are clearly labelled as placeholders. Facts awaiting checks are tracked in `FACTS-TO-VERIFY.md`.

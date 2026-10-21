@@ -1,6 +1,7 @@
-// Unsplash photos used on the site. Each photo's Unsplash location field
-// (copied verbatim into `location`) was checked against the place it is used
-// for; see README.md › Photos before adding more. `alt` is our own description.
+// Photos used on the site, from Unsplash (default) or Pexels (`source:
+// 'pexels'`). Each photo's recorded location (copied verbatim into `location`)
+// was checked against the place it is used for; see README.md › Photos before
+// adding more. `alt` is our own description.
 
 export default {
   'mana-elephants-river': {
@@ -250,5 +251,67 @@ export default {
     location: "Zambezi River",
     raw: 'https://images.unsplash.com/photo-1635749687861-4341928cbf97',
     alt: "A paddler in a canoe on the calm Zambezi River at dusk",
+  },
+  'nyanga-gardens': {
+    id: 'wkrXhnWb1SQ',
+    user: "Rutendo Petros",
+    username: 'ru_petros',
+    location: "Nyanga, Zimbabwe",
+    raw: 'https://images.unsplash.com/photo-1642086069434-02d19cf2777b',
+    alt: "Terraced gardens and a stream among wooded hills in Nyanga",
+  },
+  'vf-viewpoint': {
+    source: 'pexels',
+    id: '35314673',
+    user: "Rishab Negi",
+    username: 'rishab-negi-77346795',
+    location: "Victoria Falls, Matabeleland North Province, Zimbabwe",
+    raw: 'https://images.pexels.com/photos/35314673/pexels-photo-35314673.jpeg',
+    alt: "A visitor at a railed viewpoint on the Zimbabwe side, looking across at the falls",
+  },
+  'vf-main-falls': {
+    source: 'pexels',
+    id: '23232512',
+    user: "Benjamin Olivier Schaeuffele",
+    username: 'benjamin-olivier-schaeuffele-487831539',
+    location: "Victoria Falls, Matabeleland North Province, Zimbabwe",
+    raw: 'https://images.pexels.com/photos/23232512/pexels-photo-23232512.jpeg',
+    alt: "A long curtain of water pouring over the dark basalt lip of Victoria Falls",
+  },
+  'vf-gorge-zambia': {
+    source: 'pexels',
+    id: '36468006',
+    user: "Ana Kenk",
+    username: 'ana-kenk-2159501753',
+    location: "Livingstone, Southern Province, Zambia",
+    raw: 'https://images.pexels.com/photos/36468006/pexels-photo-36468006.jpeg',
+    alt: "The narrow basalt gorge below Victoria Falls seen from the Zambian side, with spray rising at the far end",
+  },
+  'hwange-boubou': {
+    source: 'pexels',
+    id: '32857628',
+    user: "Derek Keats",
+    username: 'dkeats',
+    location: "Hwange, Zimbabwe",
+    raw: 'https://images.pexels.com/photos/32857628/pexels-photo-32857628.jpeg',
+    alt: "A black-and-white tropical boubou perched among green leaves in Hwange",
+  },
+  'eh-robin': {
+    source: 'pexels',
+    id: '34572550',
+    user: "Derek Keats",
+    username: 'dkeats',
+    location: "Chimanimani, Zimbabwe",
+    raw: 'https://images.pexels.com/photos/34572550/pexels-photo-34572550.jpeg',
+    alt: "A white-starred robin, yellow below and blue-grey above, on a branch in Chimanimani",
+  },
+  'eh-bauhinia': {
+    source: 'pexels',
+    id: '3991980',
+    user: "Amanda Martin",
+    username: 'artyamanda45',
+    location: "Mutare, Manicaland Province, Zimbabwe",
+    raw: 'https://images.pexels.com/photos/3991980/pexels-photo-3991980.jpeg',
+    alt: "Pink bauhinia flowers against a blue sky in Mutare",
   },
 };

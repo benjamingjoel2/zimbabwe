@@ -11,7 +11,7 @@ export default [
     local: 'Mosi-oa-Tunya',
     region: 'Far north-west, on the Zambezi',
     photo: 'vf-hero',
-    gallery: ['vf-rainbow', 'vf-bridge-train', 'vf-rhino'],
+    gallery: ['vf-viewpoint', 'vf-rainbow', 'vf-bridge-train', 'vf-main-falls', 'vf-gorge-zambia', 'vf-rhino'],
     summary:
       'The falls, the gorges below them and a small town that makes an easy first or last night. Better than its reputation for crowds if you time it.',
     intro: [
@@ -45,7 +45,7 @@ export default [
     name: 'Hwange National Park',
     region: 'West, on the edge of the Kalahari sands',
     photo: 'hwange-waterhole',
-    gallery: ['hwange-zebra', 'hwange-lions', 'hwange-roller'],
+    gallery: ['hwange-zebra', 'hwange-lions', 'hwange-roller', 'hwange-elephant', 'hwange-boubou', 'hwange-dawn'],
     summary:
       'Zimbabwe’s largest park: teak woodland, open pans and one of Africa’s big elephant populations. Remote concessions in the south and east see few vehicles.',
     intro: [
@@ -234,7 +234,7 @@ export default [
     name: 'Eastern Highlands',
     region: 'East, along the Mozambique border',
     photo: 'nyanga-peaks',
-    gallery: ['eh-tea', 'honde-river', 'nyanga-lake'],
+    gallery: ['eh-tea', 'honde-river', 'nyanga-lake', 'nyanga-gardens', 'eh-robin', 'eh-bauhinia'],
     summary:
       'Cool mountains, montane forest, tea estates and waterfalls: Nyanga, the Bvumba and Chimanimani. Hiking country and a contrast to the lowveld.',
     intro: [

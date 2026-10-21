@@ -221,11 +221,11 @@ export function creditsPage() {
     body: `${pageHead({
       eyebrow: 'Credits',
       title: 'Photo credits',
-      lede: 'All photographs are from Unsplash, used under the Unsplash License. We use a photo only when the location recorded on Unsplash matches the place we show it for.',
+      lede: 'All photographs are from Unsplash or Pexels, used under their free licenses. We use a photo only when the location recorded on the photo’s page matches the place we show it for.',
     })}
 <section class="section-tight wrap">
   <div class="table-wrap"><table>
-    <thead><tr><th scope="col">Photo</th><th scope="col">Location on Unsplash</th><th scope="col">Credit</th></tr></thead>
+    <thead><tr><th scope="col">Photo</th><th scope="col">Recorded location</th><th scope="col">Credit</th></tr></thead>
     <tbody>${rows}</tbody>
   </table></div>
   <p class="small muted">Where we could not find a photo with a verified location (Great Zimbabwe and Gonarezhou), we show a drawing instead.</p>
