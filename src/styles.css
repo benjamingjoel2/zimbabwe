@@ -322,3 +322,23 @@ fieldset { border: 0; padding: 0; margin: 0; }
 .compare .photo { margin: 0.25rem 0 1rem; }
 .wrap.narrow { max-width: var(--wrap); }
 .wrap.narrow > * { max-width: 44rem; }
+
+/* Language selector (header and mobile menu) */
+.lang-switch { margin-left: 0.25rem; }
+.lang-list { list-style: none; margin: 0; padding: 0; display: flex; align-items: center; gap: 0.15rem; }
+.lang-list li { margin: 0; display: flex; align-items: center; }
+.lang-list li + li::before { content: "·"; color: var(--graniteMid); padding: 0 0.2rem; }
+.nav-list .lang-list a { font-size: 0.85rem; letter-spacing: 0.06em; padding: 0.5rem 0.15rem; min-height: 44px; display: inline-flex; align-items: center; color: var(--graniteMid); }
+.nav-list .lang-list a[aria-current="true"] { color: var(--granite); text-decoration: underline; text-decoration-thickness: 2px; }
+.nav-list .lang-list a:hover { color: var(--msasa); }
+@media (min-width: 64rem) {
+  .nav-list { flex-wrap: nowrap; gap: 0.25rem 0.9rem; }
+  .nav-list a { white-space: nowrap; }
+}
+@media (min-width: 64rem) and (max-width: 79.99rem) {
+  html:not([lang="en"]) .nav-list { gap: 0.25rem 0.6rem; }
+  html:not([lang="en"]) .nav-list a { font-size: 0.9rem; }
+  html:not([lang="en"]) .nav-list a.btn { padding-inline: 0.75rem; }
+}
+.js .nav-list .lang-list a { border-bottom: 0; display: inline-flex; }
+@media (max-width: 63.99rem) { .js .lang-switch { margin: 0.75rem 0 0; } }

@@ -3,6 +3,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
+import { createRequire } from 'node:module';
 import config from './site.config.mjs';
 import { page } from './src/layout.mjs';
 import home from './src/pages/home.mjs';
@@ -12,6 +13,10 @@ import guiding from './src/pages/guiding.mjs';
 import journeys from './src/pages/journeys.mjs';
 import when from './src/pages/when.mjs';
 import misc from './src/pages/misc.mjs';
+import { locales } from './src/layout.mjs';
+
+const require = createRequire(import.meta.url);
+const i18n = require('./scripts/i18n-static.cjs');
 
 const OUT = 'dist';
 fs.rmSync(OUT, { recursive: true, force: true });
@@ -44,6 +49,7 @@ write(
 const pages = [home, destinations, falls, guiding, journeys, when, misc].flatMap((fn) => fn());
 
 const seen = new Set();
+const english = [];
 for (const pg of pages) {
   if (seen.has(pg.path)) throw new Error(`Duplicate path ${pg.path}`);
   seen.add(pg.path);
@@ -54,12 +60,40 @@ for (const pg of pages) {
     .replace(/__BUILD__/g, version);
   const file = pg.path.endsWith('.html') ? pg.path : path.join(pg.path, 'index.html');
   write(file, html);
+  english.push({ file, html });
+}
+
+// Other languages: every English page is localised with src/i18n/<code>.json and
+// written under /<code>/. `node build.mjs --extract` refreshes src/i18n/segments.json
+// (every translatable string on the English site) for translators.
+const segments = i18n.extract(english.map((p) => p.html));
+if (process.argv.includes('--extract')) {
+  fs.writeFileSync('src/i18n/segments.json', JSON.stringify(segments, null, 1) + '\n');
+}
+const isAsset = (url) => /\.(css|js|svg|xml|txt|png|jpe?g|webp|avif|ico|woff2?)(\?|$)/.test(url);
+const ogLocale = { fr: 'fr_FR', de: 'de_DE', es: 'es_ES' };
+const untranslated = {};
+for (const loc of locales.filter((l) => l.code !== 'en')) {
+  const dictFile = `src/i18n/${loc.code}.json`;
+  const dict = fs.existsSync(dictFile) ? JSON.parse(fs.readFileSync(dictFile, 'utf8')) : {};
+  const missing = new Set();
+  for (const { file, html } of english) {
+    let out = i18n.localize(html, { lang: loc.code, dict, prefix: loc.prefix, isAsset, siteUrl: config.site.url, ogLocale: ogLocale[loc.code], missing });
+    out = out
+      .replace(/data-locale-link="en" aria-current="true"/, 'data-locale-link="en"')
+      .replace(`data-locale-link="${loc.code}"`, `data-locale-link="${loc.code}" aria-current="true"`);
+    write(path.join(loc.code, file), out);
+  }
+  if (missing.size) untranslated[loc.code] = missing.size;
+}
+if (Object.keys(untranslated).length) {
+  console.warn('Untranslated segments:', untranslated, '(run `node build.mjs --extract`, then translate src/i18n/segments.json)');
 }
 
 // Sitemap and robots.
 const urls = pages
   .filter((pg) => !pg.path.endsWith('.html') && !pg.path.includes('thanks'))
-  .map((pg) => `  <url><loc>${config.site.url}${pg.path}</loc></url>`)
+  .flatMap((pg) => locales.map((l) => `  <url><loc>${config.site.url}${l.prefix}${pg.path}</loc></url>`))
   .join('\n');
 write('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`);
 write('robots.txt', `User-agent: *\nAllow: /\nSitemap: ${config.site.url}/sitemap.xml\n`);

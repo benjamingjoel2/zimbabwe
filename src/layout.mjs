@@ -73,6 +73,27 @@ const nav = [
 
 const mark = `<svg class="mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path d="M9 20c0-5 2-9 2-13M16 20c0-6 1-10 1-15M23 20c0-5-1-8-2-12" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><path d="M4 24c4 0 4 2 8 2s4-2 8-2 4 2 8 2" fill="none" stroke="var(--copper)" stroke-width="2.4" stroke-linecap="round"/></svg>`;
 
+// Languages. English lives at the root; the others are built from it by
+// scripts/i18n-static.cjs into /fr/, /de/ and /es/ (see build.mjs).
+export const locales = [
+  { code: 'en', prefix: '', label: 'EN', name: 'English' },
+  { code: 'fr', prefix: '/fr', label: 'FR', name: 'Français' },
+  { code: 'de', prefix: '/de', label: 'DE', name: 'Deutsch' },
+  { code: 'es', prefix: '/es', label: 'ES', name: 'Español' },
+];
+
+// EN · FR · DE · ES, each linking to this page in that language. The links carry
+// data-locale-link so the localiser leaves their URLs alone and only moves
+// aria-current to the right language.
+function langSwitch(path) {
+  return `<li class="lang-switch"><ul class="lang-list" aria-label="Language">${locales
+    .map(
+      (l) =>
+        `<li><a href="${l.prefix}${path}" hreflang="${l.code}" lang="${l.code}" data-locale-link="${l.code}"${l.code === 'en' ? ' aria-current="true"' : ''} aria-label="${l.name}">${l.label}</a></li>`,
+    )
+    .join('')}</ul></li>`;
+}
+
 function header(path) {
   const links = nav
     .map(
@@ -88,7 +109,7 @@ function header(path) {
       <button class="nav-toggle" aria-expanded="false" aria-controls="nav-list" hidden>
         <span class="nav-toggle-bars" aria-hidden="true"></span><span class="nav-toggle-label">Menu</span>
       </button>
-      <ul id="nav-list" class="nav-list">${links}<li><a class="btn btn-small" href="/enquire/"${path.startsWith('/enquire') ? ' aria-current="page"' : ''}>Enquire</a></li></ul>
+      <ul id="nav-list" class="nav-list">${links}<li><a class="btn btn-small" href="/enquire/"${path.startsWith('/enquire') ? ' aria-current="page"' : ''}>Enquire</a></li>${langSwitch(path)}</ul>
     </nav>
   </div>
 </header>`;
@@ -139,6 +160,8 @@ export function page({ path, title, description, body, image = 'vf-hero', bodyCl
 <title>${esc(fullTitle)}</title>
 <meta name="description" content="${esc(description)}">
 <link rel="canonical" href="${url}">
+${locales.map((l) => `<link rel="alternate" hreflang="${l.code}" href="${config.site.url}${l.prefix}${path}">`).join('\n')}
+<link rel="alternate" hreflang="x-default" href="${url}">
 <meta name="theme-color" content="${config.palette.zambezi}">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="${esc(brand.name)}">
@@ -162,6 +185,7 @@ ${header(path)}
 ${body}
 </main>
 ${footer()}
+<div id="ui-strings" hidden><span data-k="thisMonth">(this month)</span><span data-k="check">Please check:</span><span data-k="sending">Sending…</span><span data-k="failed">Sorry, that did not send. Please email us at</span><span data-k="subject">Trip enquiry from</span><span data-k="opened">Your email app should open with the enquiry filled in. Press send there to reach us. If nothing opened, email us at</span></div>
 </body>
 </html>`;
 }
