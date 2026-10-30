@@ -5,6 +5,7 @@
   "framework": null,
   "cleanUrls": true,
   "trailingSlash": true,
+  "redirects": [{ "source": "/credits/", "destination": "/about/", "permanent": true }],
   "headers": [
     {
       "source": "/(styles.css|main.js|favicon.svg)",

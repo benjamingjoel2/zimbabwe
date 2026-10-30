@@ -1,7 +1,8 @@
 // Quality checks on the built site. Run `npm run build && npm run check`.
 //  1. WCAG AA contrast for every palette pair listed in site.config.mjs
 //  2. Every internal link and asset in dist/ resolves
-//  3. Every <img> has alt text and every photo has a visible credit
+//  3. Every <img> has alt text (photo credits are not shown: Unsplash and Pexels
+//     licences do not require them; details stay in src/data/photos.mjs)
 //  4. Every [F#] fact marker in src/ has an entry in FACTS-TO-VERIFY.md
 import fs from 'node:fs';
 import path from 'node:path';
@@ -55,9 +56,6 @@ for (const file of files) {
   for (const [tag] of html.matchAll(/<img\b[^>]*>/g)) {
     if (!/\balt="[^"]+"/.test(tag)) fail(`${file}: image without alt text`);
   }
-  const imgs = (html.match(/<img\b[^>]*images\.(?:unsplash|pexels)\.com/g) || []).length;
-  const credits = (html.match(/class="credit"/g) || []).length;
-  if (credits < imgs) fail(`${file}: ${imgs} photos but ${credits} credits`);
   if (/\[F\d+\]/.test(html.replace(/<!--[\s\S]*?-->/g, ''))) fail(`${file}: visible fact marker`);
 }
 console.log(`Links: ${links} internal links in ${files.length} pages checked`);

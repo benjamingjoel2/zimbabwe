@@ -11,7 +11,7 @@ import falls from './src/pages/falls.mjs';
 import guiding from './src/pages/guiding.mjs';
 import journeys from './src/pages/journeys.mjs';
 import when from './src/pages/when.mjs';
-import misc, { creditsPage } from './src/pages/misc.mjs';
+import misc from './src/pages/misc.mjs';
 
 const OUT = 'dist';
 fs.rmSync(OUT, { recursive: true, force: true });
@@ -40,9 +40,8 @@ write(
   `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="6" fill="${p.zambezi}"/><path d="M9 20c0-5 2-9 2-13M16 20c0-6 1-10 1-15M23 20c0-5-1-8-2-12" fill="none" stroke="${p.offwhite}" stroke-width="2.4" stroke-linecap="round"/><path d="M4 25c4 0 4 2 8 2s4-2 8-2 4 2 8 2" fill="none" stroke="${p.copperLight}" stroke-width="2.4" stroke-linecap="round"/></svg>`,
 );
 
-// Pages. Credits go last so they list exactly the photos used elsewhere.
+// Pages.
 const pages = [home, destinations, falls, guiding, journeys, when, misc].flatMap((fn) => fn());
-pages.push(creditsPage());
 
 const seen = new Set();
 for (const pg of pages) {

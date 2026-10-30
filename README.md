@@ -4,7 +4,7 @@ A static, mobile-first travel website for Zimbabwe, aimed at travellers who want
 
 The brand is **Mosi Travel**, from Mosi-oa-Tunya, "the smoke that thunders", the local name for Victoria Falls. The brand name, contact details and palette live in one file (`site.config.mjs`), so the site can be re-branded (for example to the alternative, *Mana & Stone*) without touching the pages.
 
-> **Before launch:** work through [`FACTS-TO-VERIFY.md`](FACTS-TO-VERIFY.md). Every visa rule, fee, season, distance and historical claim on the site is listed there, along with the placeholder contact details and stay names.
+> **Before launch:** work through [`FACTS-TO-VERIFY.md`](FACTS-TO-VERIFY.md). Every visa rule, fee, season, distance and historical claim on the site is listed there, along with the placeholder stay names. The legal pages (`/privacy/`, `/terms/`, `/cookies/`) are complete drafts; have a lawyer review them.
 
 ## Run it
 
@@ -13,7 +13,7 @@ You need [Node.js](https://nodejs.org) 18 or newer. There are no dependencies to
 ```sh
 npm run dev      # build, then preview at http://localhost:8080
 npm run build    # build the site into dist/
-npm run check    # contrast, links, alt text, photo credits, fact markers
+npm run check    # contrast, links, alt text, fact markers
 npm test         # build + check
 ```
 
@@ -28,12 +28,12 @@ npm test         # build + check
 | Sample journeys | `/journeys/` | `src/pages/journeys.mjs`, content in `src/data/journeys.mjs` |
 | When to go | `/when-to-go/` | `src/pages/when.mjs` |
 | Stays (placeholder names) | `/stays/` | `src/data/stays.mjs` |
-| About, Journal, Enquiry, Photo credits, 404 | | `src/pages/misc.mjs`, posts in `src/data/journal.mjs` |
+| About, Journal, Enquiry, legal pages, 404 | | `src/pages/misc.mjs`, posts in `src/data/journal.mjs` |
 
 ```
 site.config.mjs      brand, contact details, palette, form endpoint  ← start here
 build.mjs            renders every page to dist/
-src/layout.mjs       header, footer, <head>, photo + credit helpers
+src/layout.mjs       header, footer, <head>, photo helper, hero preload
 src/styles.css       all styles (colours come from the config as CSS variables)
 src/main.js          small progressive enhancements (menu, chart tooltips, form)
 src/data/            content: destinations, falls months, journeys, stays, journal, photos
@@ -52,7 +52,7 @@ Pages are plain JavaScript template literals that return HTML. There is no frame
 Edit `site.config.mjs` and rebuild:
 
 - `brand.name`, `shortName`, `tagline`, `nameStory`: used in the header, footer, page titles, About page and form.
-- `contact`: email, phone, WhatsApp (digits only, or `''` to hide), address, hours. **These are placeholders.**
+- `contact`: email (`mositravel@tourground.com`), business address (28 Walterhill, Harare) and hours. No phone, WhatsApp or social links (owner decision).
 - `site.url`: your live domain, for canonical links and the sitemap.
 - `palette`: every colour on the site. Keep the token names; change the hex values.
 - `contrastPairs`: the text/background combinations the site uses. `npm run check` fails if any drops below WCAG AA (4.5:1 for text, 3:1 for large text and decorative use).
@@ -73,7 +73,7 @@ The site deliberately quotes **no fee amounts** and **no visa prices**. It point
 
 ### Photos
 
-Photos come from [Unsplash](https://unsplash.com) and [Pexels](https://www.pexels.com). They are hot-linked from `images.unsplash.com` and `images.pexels.com` with responsive sizes, and credited under every image and on `/credits/`. The rule: **a photo is used only if the location recorded on its Unsplash or Pexels page matches the place it illustrates.** To add one:
+Photos come from [Unsplash](https://unsplash.com) and [Pexels](https://www.pexels.com). They are hot-linked from `images.unsplash.com` and `images.pexels.com` with responsive sizes. Neither licence requires attribution, so no credits are shown (owner decision); photographer details stay in `src/data/photos.mjs`. The rule: **a photo is used only if the location recorded on its Unsplash or Pexels page matches the place it illustrates.** To add one:
 
 1. Open the photo's page and check its location (Unsplash shows it under the photo; on Pexels it is in the photo details). It must name the place you're using it for. A photo located only as "Zimbabwe" or a province is for general use only. Don't use Unsplash+ (paid) photos.
 2. Add an entry to `src/data/photos.mjs`:
@@ -83,7 +83,7 @@ Photos come from [Unsplash](https://unsplash.com) and [Pexels](https://www.pexel
    - the image URL without its query string: `https://images.unsplash.com/photo-…`, or `https://images.pexels.com/photos/…/pexels-photo-….jpeg`
    - your own descriptive `alt` text
    - for Pexels, `source: 'pexels'`
-3. Use it in a page with `photo('your-key', { ratio: [3, 2], caption: '…' })`. The credit is added automatically.
+3. Use it in a page with `photo('your-key', { ratio: [3, 2], caption: '…' })`.
 
 No free photo with a matching location could be found on either site for **Great Zimbabwe** or **Gonarezhou**, so those pages show drawn panels instead (see `drawings` in `src/pages/destinations.mjs`). Replace them when a verified photo is available: set `photo` and `gallery` in `src/data/destinations.mjs`.
 

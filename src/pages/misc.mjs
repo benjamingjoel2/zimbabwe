@@ -1,5 +1,5 @@
 import config from '../../site.config.mjs';
-import { photo, pageHead, cta, esc, brand, contact, credit, usedPhotos, photoMeta } from '../layout.mjs';
+import { photo, pageHead, cta, esc, brand, contact } from '../layout.mjs';
 import stays from '../data/stays.mjs';
 import destinations from '../data/destinations.mjs';
 import journeys from '../data/journeys.mjs';
@@ -143,7 +143,7 @@ function enquirePages() {
       <div class="field"><label for="f-email">Email <span class="req">*</span></label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
     </div>
     <div class="field-row">
-      <div class="field"><label for="f-phone">Phone or WhatsApp</label><input id="f-phone" name="phone" type="tel" autocomplete="tel"></div>
+      <div class="field"><label for="f-phone">Phone (optional)</label><input id="f-phone" name="phone" type="tel" autocomplete="tel"></div>
       <div class="field"><label for="f-country">Country you live in</label><input id="f-country" name="country" type="text" autocomplete="country-name"></div>
     </div>
     <div class="field-row">
@@ -175,11 +175,9 @@ function enquirePages() {
     <p><button class="btn" type="submit">Send enquiry</button></p>
   </form>
   <aside>
-    <h2>Prefer to talk?</h2>
+    <h2>Prefer email?</h2>
     <ul class="plain">
       <li><a href="mailto:${contact.email}">${esc(contact.email)}</a></li>
-      <li><a href="tel:${contact.phone.replace(/[^+\d]/g, '')}">${esc(contact.phone)}</a></li>
-      ${contact.whatsapp ? `<li><a href="https://wa.me/${contact.whatsapp}">WhatsApp</a></li>` : ''}
       <li>${esc(contact.hours)}</li>
     </ul>
     <h2>What happens next</h2>
@@ -205,31 +203,125 @@ function enquirePages() {
   ];
 }
 
-// Built last so it can list exactly the photos the other pages used.
-export function creditsPage() {
-  const keys = [...usedPhotos].sort();
-  const rows = keys
-    .map((k) => {
-      const p = photoMeta(k);
-      return `<tr><td>${esc(p.alt)}</td><td>${esc(p.location)}</td><td>${credit(p)}</td></tr>`;
-    })
-    .join('');
+// Legal pages: complete drafts for an enquiry-led, tailor-made travel service.
+// Have a lawyer review them before launch.
+function privacyPage() {
   return {
-    path: '/credits/',
-    title: 'Photo credits',
-    description: `Credits for the photographs used on ${brand.name}.`,
-    body: `${pageHead({
-      eyebrow: 'Credits',
-      title: 'Photo credits',
-      lede: 'All photographs are from Unsplash or Pexels, used under their free licenses. We use a photo only when the location recorded on the photo’s page matches the place we show it for.',
-    })}
-<section class="section-tight wrap">
-  <div class="table-wrap"><table>
-    <thead><tr><th scope="col">Photo</th><th scope="col">Recorded location</th><th scope="col">Credit</th></tr></thead>
-    <tbody>${rows}</tbody>
-  </table></div>
-  <p class="small muted">Where we could not find a photo with a verified location (Great Zimbabwe and Gonarezhou), we show a drawing instead.</p>
-</section>`,
+    path: '/privacy/',
+    title: 'Privacy policy',
+    description: 'How Mosi Travel collects, uses and protects your personal information.',
+    body: `${pageHead({ eyebrow: 'Legal', title: 'Privacy policy', lede: 'Last updated 30 October 2026.' })}
+<section class="section-tight wrap"><div class="prose">
+  <h2>Who we are</h2>
+  <p>Mosi Travel plans tailor-made journeys in Zimbabwe. In this policy, “we”, “us” and “our” mean Mosi Travel, of 28 Walterhill, 28 Walterhill Avenue, Harare, Zimbabwe. We are responsible for the personal information you share with us through this website.</p>
+  <p>If you have any question about this policy or your information, email us at <a href="mailto:mositravel@tourground.com">mositravel@tourground.com</a>.</p>
+  <h2>What we collect</h2>
+  <p>We only collect what you choose to give us, and what we need to answer you and plan your trip:</p>
+  <ul>
+    <li>Contact details you enter in the enquiry form: your name, email address and, if you give it, a phone number. If the form opens your own email app, the enquiry is sent from your email account.</li>
+    <li>Trip details: who is travelling, approximate dates, interests, travel style and anything else you tell us. Please only share health, dietary or accessibility information if you want us to take it into account.</li>
+    <li>Messages and emails you send us, and our replies.</li>
+    <li>If you go on to travel with us: the details our partners need to deliver your trip, such as passport names, dates of birth, flight details and emergency contacts.</li>
+    <li>Basic technical information that any web server receives (such as your IP address, browser type and the pages requested), kept briefly in server logs for security and to keep the site running.</li>
+  </ul>
+  <h2>How we use it and why</h2>
+  <ul>
+    <li>To answer your enquiry and prepare a tailor-made proposal (steps you ask us to take before entering into a contract).</li>
+    <li>To arrange and look after your trip if you book (performance of our contract with you).</li>
+    <li>To send our newsletter or guide, only if you sign up for it (your consent, which you can withdraw at any time).</li>
+    <li>To keep records we are required to keep, for example for accounting and tax (legal obligation).</li>
+    <li>To keep the website secure and working (our legitimate interests).</li>
+  </ul>
+  <p>We do not sell your information, and we do not use it for automated decision-making or profiling.</p>
+  <h2>Who we share it with</h2>
+  <p>We only share your information where it is needed for the purposes above:</p>
+  <ul>
+    <li>With the lodges, camps, hotels, guides, drivers, airlines and other suppliers who deliver your trip, when you book.</li>
+    <li>Our website host, which serves the site and keeps short-lived technical logs.</li>
+    <li>Our email provider, which receives the enquiries you send and carries our replies.</li>
+    <li>With professional advisers or authorities where the law requires it.</li>
+  </ul>
+  <p>Some of these suppliers and service providers are outside the country you live in. Where we transfer your information internationally, we take steps to make sure it is protected to the standard required by law.</p>
+  <h2>How long we keep it</h2>
+  <p>We keep enquiries for up to two years after our last contact so we can pick up where we left off if you come back to us. If you travel with us, we keep booking records for as long as accounting and tax law requires (usually up to seven years). Newsletter details are kept until you unsubscribe.</p>
+  <h2>Your rights</h2>
+  <p>Depending on where you live, you have the right to ask for a copy of the information we hold about you, to have it corrected or deleted, to restrict or object to how we use it, to receive it in a portable format, and to withdraw your consent at any time. To use any of these rights, email <a href="mailto:mositravel@tourground.com">mositravel@tourground.com</a>. We will reply within one month.</p>
+  <p>If you are unhappy with how we have handled your information, please tell us first so we can put it right. You can also complain to the data-protection authority where you live or to the Postal and Telecommunications Regulatory Authority of Zimbabwe (POTRAZ), the data-protection authority under the Cyber and Data Protection Act.</p>
+  <h2>Security</h2>
+  <p>Our website is served over an encrypted connection (HTTPS), and we limit access to your information to the people who need it to plan and run your trip.</p>
+  <h2>Cookies and local storage</h2>
+  <p>How this website uses cookies and your browser’s storage is explained in our <a href="/cookies/">Cookie Policy</a>.</p>
+  <h2>Changes to this policy</h2>
+  <p>We may update this policy from time to time. The date at the top of the page shows when it last changed.</p>
+</div></section>`,
+  };
+}
+
+function termsPage() {
+  return {
+    path: '/terms/',
+    title: 'Booking terms',
+    description: 'The terms that apply when Mosi Travel plans and arranges a tailor-made Zimbabwe journey for you.',
+    body: `${pageHead({ eyebrow: 'Legal', title: 'Booking terms', lede: 'Last updated 30 October 2026.' })}
+<section class="section-tight wrap"><div class="prose">
+  <h2>About these terms</h2>
+  <p>These terms apply to the tailor-made travel arrangements that Mosi Travel, of 28 Walterhill, 28 Walterhill Avenue, Harare, Zimbabwe (“we”, “us”), plans for you. Please read them before you confirm a booking. When you confirm a booking you accept them on behalf of everyone in your party, and you confirm that you are at least 18 and have their authority to do so.</p>
+  <p>These are general principles. The quote and booking confirmation we send you set out the specific arrangements, deposit, balance due date and cancellation charges for your trip, and they form part of your contract with us.</p>
+  <h2>Enquiries and quotes</h2>
+  <p>Sending us an enquiry through the website, by email or any other way does not commit you to anything. We will reply with ideas and, when you are ready, a written quote.</p>
+  <p>Quotes are based on availability and supplier rates at the time we write them. Nothing is held for you until you confirm and we confirm back in writing. We will always tell you if anything in a quote changes before you book.</p>
+  <h2>Booking, deposit and balance</h2>
+  <p>Your booking is confirmed when you accept our quote, we receive the deposit stated in it, and we send you a written booking confirmation. Your contract with us starts from that point.</p>
+  <p>The balance is due by the date shown in your quote and booking confirmation. If it is not paid on time, we may treat the booking as cancelled by you and apply the cancellation charges below.</p>
+  <p>Some suppliers (for example certain lodges, flights and permits) need full payment when they are booked. Where this applies we will tell you before you confirm.</p>
+  <h2>Prices</h2>
+  <p>The price of your trip is the price in your booking confirmation. We will only change it after confirmation if a cost outside our control changes, such as government taxes, park or conservation fees, or fuel surcharges set by a carrier, and we will show you how any change is worked out. If a change is significant, you may cancel without paying cancellation charges.</p>
+  <h2>Changes you ask for</h2>
+  <p>We will always try to help if you want to change your trip after booking. Changes depend on availability and on the suppliers’ own terms, and any extra cost they charge will be passed on to you, together with any reasonable administration cost we tell you about in advance.</p>
+  <h2>If you cancel</h2>
+  <p>To cancel, tell us in writing. Cancellation charges depend on how close to departure you cancel and on the charges our suppliers make to us. They are set out in your quote and booking confirmation. We will always try to keep them as low as we can, and we will refund anything we are able to recover.</p>
+  <h2>If we change or cancel your trip</h2>
+  <p>Occasionally we have to make changes, for example when a camp or flight is no longer available. If we make a significant change before you travel, we will tell you as soon as possible and offer you a choice of accepting it, taking a comparable alternative, or cancelling with a full refund of what you have paid us.</p>
+  <p>We may need to cancel or change arrangements because of events outside anyone’s control, such as extreme weather, natural disasters, epidemics, civil unrest or official travel advice against travel. In that case we will help you rearrange, and refund what we are able to recover from suppliers.</p>
+  <h2>Travel insurance</h2>
+  <p>Comprehensive travel insurance is a condition of travelling with us. It must cover cancellation, medical treatment, emergency evacuation and repatriation, and any activities you plan to do. Please arrange it when you book so you are covered if you have to cancel.</p>
+  <h2>Passports, visas and health</h2>
+  <p>You are responsible for having a valid passport, any visas or electronic travel authorisations, and any vaccinations or health certificates required for your journey, including for transit countries. We are happy to share general guidance, but entry rules change, so please check them with the relevant embassy or official government source and with a travel-health professional well before you travel.</p>
+  <h2>Our responsibility to you</h2>
+  <p>We will plan your trip with reasonable skill and care, and we choose our suppliers carefully. Many services are provided by independent suppliers under their own terms and the laws of the country where they operate.</p>
+  <p>We are not responsible for any loss, injury or damage caused by you or anyone in your party, by a third party not connected with the arrangements we provide, or by events outside our control. Where the law allows, our liability is limited to the price of your trip. Nothing in these terms limits liability that cannot legally be limited, such as liability for death or personal injury caused by our negligence.</p>
+  <p>Wildlife is wild and outdoor activities carry some risk. Please follow the advice of your guides and lodge staff at all times.</p>
+  <h2>Your responsibilities</h2>
+  <p>Please give us accurate information, including the names on your passports and any medical, dietary or accessibility needs that affect your trip. Please respect local laws, customs and the rules of the parks and places you visit.</p>
+  <h2>Complaints</h2>
+  <p>If something is not right while you are travelling, tell your guide, the property or us straight away so it can be put right on the spot. If it cannot be resolved, write to us at <a href="mailto:mositravel@tourground.com">mositravel@tourground.com</a> within 28 days of your return and we will reply in full.</p>
+  <h2>Governing law</h2>
+  <p>These terms and any dispute connected with them are governed by the law that applies to your contract with us. Nothing in them affects your rights as a consumer under the law of the country where you live.</p>
+</div></section>`,
+  };
+}
+
+function cookiesPage() {
+  return {
+    path: '/cookies/',
+    title: 'Cookie policy',
+    description: 'How the Mosi Travel website uses cookies and browser storage.',
+    body: `${pageHead({ eyebrow: 'Legal', title: 'Cookie policy', lede: 'Last updated 30 October 2026.' })}
+<section class="section-tight wrap"><div class="prose">
+  <h2>What cookies and local storage are</h2>
+  <p>Cookies are small text files a website saves in your browser. Local storage is a similar feature that lets a website remember information on your own device. Neither is sent to us unless a page specifically reads it.</p>
+  <h2>Cookies we use</h2>
+  <p>This website does not set any cookies, and it does not use advertising or tracking cookies of any kind.</p>
+  <h2>Local storage we use</h2>
+  <p>This website does not use local storage.</p>
+  <h2>Analytics and third parties</h2>
+  <p>We do not use analytics, advertising or social-media tracking on this website. Photographs are loaded from Unsplash’s and Pexels’ image servers, which receive the standard technical information (such as your IP address) that any website receives when it delivers an image. The site uses your device’s own fonts, so no font service is involved.</p>
+  <h2>Consent and how to withdraw it</h2>
+  <p>Because this website sets no cookies and stores nothing in your browser, there is nothing to consent to and no cookie banner. If that ever changes, we will ask for your consent first and you will be able to change your choice at any time.</p>
+  <p>You can clear anything a website has stored in your browser at any time by clearing its site data (usually under Settings, then Privacy, then Cookies and site data), or block cookies entirely in your browser settings. This website will work exactly the same.</p>
+  <h2>Questions</h2>
+  <p>If you have any questions about this policy, email us at <a href="mailto:mositravel@tourground.com">mositravel@tourground.com</a>. Our <a href="/privacy/">Privacy Policy</a> explains how we handle personal information.</p>
+</div></section>`,
   };
 }
 
@@ -244,5 +336,5 @@ function notFound() {
 }
 
 export default function miscPages() {
-  return [staysPage(), aboutPage(), ...journalPages(), ...enquirePages(), notFound()];
+  return [staysPage(), aboutPage(), ...journalPages(), ...enquirePages(), privacyPage(), termsPage(), cookiesPage(), notFound()];
 }

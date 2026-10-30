@@ -14,9 +14,7 @@ export const esc = (s = '') =>
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;');
 
-const UTM = `utm_source=${encodeURIComponent(brand.name.toLowerCase().replace(/\W+/g, '_'))}&utm_medium=referral`;
-
-// Track which photos each build uses, so the credits page lists exactly those.
+// Track which photos each build uses.
 export const usedPhotos = new Set();
 
 // Photos come from Unsplash (default) or Pexels (`source: 'pexels'`); both
@@ -30,7 +28,8 @@ function photoSrc(p, w, h) {
 }
 
 /**
- * Responsive, credited photo (Unsplash or Pexels).
+ * Responsive photo (Unsplash or Pexels). Their licences do not require credit,
+ * so none is shown (owner decision); photographer details stay in photos.mjs.
  * @param {string} key   key in src/data/photos.mjs
  * @param {object} opts  { ratio: [w,h] crop ratio, sizes, eager, caption, className }
  */
@@ -49,15 +48,8 @@ export function photo(key, opts = {}) {
   <img src="${photoSrc(p, 1200, Math.round((1200 * rh) / rw))}" srcset="${srcset}" sizes="${sizes}"
     width="${rw * 400}" height="${rh * 400}" alt="${esc(p.alt)}" ${loading}
     style="background:${p.color || '#D6D0C6'}">
-  <figcaption>${opts.caption ? `${opts.caption} · ` : ''}${credit(p)}</figcaption>
+  ${opts.caption ? `<figcaption>${opts.caption}</figcaption>` : ''}
 </figure>`;
-}
-
-export function credit(p) {
-  if (p.source === 'pexels') {
-    return `<span class="credit">Photo: <a href="https://www.pexels.com/@${p.username}/">${esc(p.user)}</a> on <a href="https://www.pexels.com/photo/${p.id}/">Pexels</a></span>`;
-  }
-  return `<span class="credit">Photo: <a href="https://unsplash.com/@${p.username}?${UTM}">${esc(p.user)}</a> on <a href="https://unsplash.com/photos/${p.id}?${UTM}">Unsplash</a></span>`;
 }
 
 export function photoMeta(key) {
@@ -103,10 +95,6 @@ function header(path) {
 }
 
 function footer() {
-  const wa = contact.whatsapp
-    ? `<li><a href="https://wa.me/${contact.whatsapp}">WhatsApp</a></li>`
-    : '';
-  const social = config.social.map((s) => `<li><a href="${s.url}">${esc(s.label)}</a></li>`).join('');
   return `<footer class="site-footer">
   <div class="wrap footer-grid">
     <div>
@@ -117,8 +105,6 @@ function footer() {
       <h2 class="footer-h">Talk to us</h2>
       <ul class="plain">
         <li><a href="mailto:${contact.email}">${esc(contact.email)}</a></li>
-        <li><a href="tel:${contact.phone.replace(/[^+\d]/g, '')}">${esc(contact.phone)}</a></li>
-        ${wa}
         <li>${esc(contact.address)}</li>
         <li>${esc(contact.hours)}</li>
       </ul>
@@ -130,8 +116,9 @@ function footer() {
         <li><a href="/guiding/">Why Zimbabwe guides</a></li>
         <li><a href="/when-to-go/">When to go</a></li>
         <li><a href="/enquire/">Plan a journey</a></li>
-        <li><a href="/credits/">Photo credits</a></li>
-        ${social}
+        <li><a href="/privacy/">Privacy policy</a></li>
+        <li><a href="/terms/">Booking terms</a></li>
+        <li><a href="/cookies/">Cookie policy</a></li>
       </ul>
     </div>
   </div>
@@ -164,6 +151,7 @@ export function page({ path, title, description, body, image = 'vf-hero', bodyCl
 <link rel="preconnect" href="https://images.unsplash.com">
 <link rel="preconnect" href="https://images.pexels.com">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+${heroPreload(body)}
 <script>document.documentElement.classList.add('js')</script>
 <link rel="stylesheet" href="/styles.css?v=__BUILD__">
 <script src="/main.js?v=__BUILD__" defer></script>
@@ -176,6 +164,16 @@ ${body}
 ${footer()}
 </body>
 </html>`;
+}
+
+// Preload the page's hero photo (the one image marked fetchpriority="high"), so
+// the browser fetches it before parsing the body.
+function heroPreload(body) {
+  const tag = body.match(/<img [^>]*fetchpriority="high"[^>]*>/);
+  if (!tag) return '';
+  const attr = (n) => (tag[0].match(new RegExp(`\\s${n}="([^"]*)"`)) || [])[1];
+  if (!attr('srcset')) return '';
+  return `<link rel="preload" as="image" href="${attr('src')}" imagesrcset="${attr('srcset')}" imagesizes="${attr('sizes') || '100vw'}" fetchpriority="high">`;
 }
 
 // Small shared fragments ---------------------------------------------------
