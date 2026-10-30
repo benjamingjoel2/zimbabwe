@@ -26,20 +26,16 @@ export default {
   //   nameStory: 'Named for Mana Pools and the stone walls of Great Zimbabwe: wild places and deep history.'
 
   contact: {
-    email: 'hello@mositravel.example', // PLACEHOLDER
-    phone: '+263 00 000 0000', // PLACEHOLDER
-    whatsapp: '', // PLACEHOLDER, e.g. '263770000000' (digits only). Leave '' to hide.
-    address: 'Victoria Falls, Zimbabwe', // PLACEHOLDER
+    // One address per brand; no phone, WhatsApp or social links (owner decision).
+    email: 'mositravel@tourground.com',
+    // Business address: 28 Walterhill, a premium coworking space in Harare.
+    address: '28 Walterhill, 28 Walterhill Avenue, Harare, Zimbabwe',
     hours: 'Mon–Fri, 08:00–17:00 Central Africa Time (UTC+2)', // PLACEHOLDER
   },
 
-  social: [
-    // { label: 'Instagram', url: 'https://instagram.com/…' },
-  ],
-
   site: {
     // Used for canonical URLs, the sitemap and social cards. No trailing slash.
-    url: 'https://mosi-travel.vercel.app',
+    url: 'https://mositravel.tourground.com',
     lang: 'en-GB',
     locale: 'en_GB',
   },
