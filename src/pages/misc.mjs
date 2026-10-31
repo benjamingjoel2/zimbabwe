@@ -315,7 +315,7 @@ function cookiesPage() {
   <h2>Local storage we use</h2>
   <p>This website does not use local storage.</p>
   <h2>Analytics and third parties</h2>
-  <p>We do not use analytics, advertising or social-media tracking on this website. Photographs are loaded from Unsplash’s and Pexels’ image servers, which receive the standard technical information (such as your IP address) that any website receives when it delivers an image. The site uses your device’s own fonts, so no font service is involved.</p>
+  <p>We do not use analytics, advertising or social-media tracking on this website. Photographs are loaded from our image delivery providers’ servers, which receive the standard technical information (such as your IP address) that any website receives when it delivers an image. The site uses your device’s own fonts, so no font service is involved.</p>
   <h2>Consent and how to withdraw it</h2>
   <p>Because this website sets no cookies and stores nothing in your browser, there is nothing to consent to and no cookie banner. If that ever changes, we will ask for your consent first and you will be able to change your choice at any time.</p>
   <p>You can clear anything a website has stored in your browser at any time by clearing its site data (usually under Settings, then Privacy, then Cookies and site data), or block cookies entirely in your browser settings. This website will work exactly the same.</p>

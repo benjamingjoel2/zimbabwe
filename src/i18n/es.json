@@ -876,7 +876,6 @@
 "0c9ada568b": "El almacenamiento local que usamos",
 "0f5efdae00": "Este sitio no usa almacenamiento local.",
 "746d2b2775": "Analítica y terceros",
-"bdbf738461": "No usamos analítica, publicidad ni seguimiento de redes sociales en este sitio. Las fotografías se cargan desde los servidores de imágenes de Unsplash y Pexels, que reciben la información técnica habitual (como su dirección IP) que recibe cualquier web al servir una imagen. El sitio usa las fuentes de su propio dispositivo, así que no interviene ningún servicio de fuentes.",
 "f9a327db03": "Consentimiento y cómo retirarlo",
 "773d5963f4": "Como este sitio no instala cookies ni guarda nada en su navegador, no hay nada que aceptar ni aviso de cookies. Si eso cambiara, le pediríamos antes su consentimiento y podría cambiar su elección en cualquier momento.",
 "c5ddf69de0": "Puede borrar en cualquier momento lo que un sitio web haya guardado en su navegador eliminando sus datos (normalmente en Configuración, luego Privacidad y después Cookies y datos de sitios), o bloquear por completo las cookies en la configuración de su navegador. Este sitio web funcionará exactamente igual.",
@@ -888,5 +887,6 @@
 "cdbc582fc3": "No hemos encontrado esta página. Puede que se haya movido.",
 "70f8bb9a8a": "Inicio",
 "9ff7cffe96": "No se ha encontrado esta página.",
-"bc3023b360": "Página no encontrada"
+"bc3023b360": "Página no encontrada",
+"434bc038c5": "No usamos analítica, publicidad ni seguimiento de redes sociales en este sitio. Las fotografías se cargan desde los servidores de nuestros proveedores de distribución de imágenes, que reciben la información técnica habitual (como su dirección IP) que recibe cualquier web al servir una imagen. El sitio usa las fuentes de su propio dispositivo, así que no interviene ningún servicio de fuentes."
 }

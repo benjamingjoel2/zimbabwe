@@ -876,7 +876,6 @@
 "0c9ada568b": "Le stockage local que nous utilisons",
 "0f5efdae00": "Ce site n’utilise pas le stockage local.",
 "746d2b2775": "Mesure d’audience et tiers",
-"bdbf738461": "Nous n’utilisons ni mesure d’audience, ni publicité, ni suivi par les réseaux sociaux sur ce site. Les photographies sont chargées depuis les serveurs d’images d’Unsplash et de Pexels, qui reçoivent les informations techniques habituelles (comme votre adresse IP) que reçoit tout site lorsqu’il fournit une image. Le site utilise les polices de votre appareil : aucun service de polices n’intervient.",
 "f9a327db03": "Consentement et retrait",
 "773d5963f4": "Comme ce site ne dépose aucun cookie et ne stocke rien dans votre navigateur, il n’y a rien à accepter et pas de bandeau cookies. Si cela devait changer, nous vous demanderions d’abord votre consentement et vous pourriez modifier votre choix à tout moment.",
 "c5ddf69de0": "Vous pouvez à tout moment effacer ce qu'un site a enregistré dans votre navigateur en supprimant ses données (généralement dans Paramètres, puis Confidentialité, puis Cookies et données de site), ou bloquer entièrement les cookies dans les réglages de votre navigateur. Ce site fonctionnera exactement de la même manière.",
@@ -888,5 +887,6 @@
 "cdbc582fc3": "Nous n'avons pas trouvé cette page. Elle a peut-être été déplacée.",
 "70f8bb9a8a": "Accueil",
 "9ff7cffe96": "Cette page est introuvable.",
-"bc3023b360": "Page introuvable"
+"bc3023b360": "Page introuvable",
+"434bc038c5": "Nous n’utilisons ni mesure d’audience, ni publicité, ni suivi par les réseaux sociaux sur ce site. Les photographies sont chargées depuis les serveurs de nos prestataires de diffusion d’images, qui reçoivent les informations techniques habituelles (comme votre adresse IP) que reçoit tout site lorsqu’il fournit une image. Le site utilise les polices de votre appareil : aucun service de polices n’intervient."
 }

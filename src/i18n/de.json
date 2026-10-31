@@ -876,7 +876,6 @@
 "0c9ada568b": "Welchen lokalen Speicher wir nutzen",
 "0f5efdae00": "Diese Website nutzt keinen lokalen Speicher.",
 "746d2b2775": "Analyse und Dritte",
-"bdbf738461": "Wir verwenden auf dieser Website weder Analyse noch Werbung noch Social-Media-Tracking. Fotos werden von den Bildservern von Unsplash und Pexels geladen, die die üblichen technischen Informationen (etwa Ihre IP-Adresse) erhalten, die jede Website beim Ausliefern eines Bildes bekommt. Die Website nutzt die Schriften Ihres Geräts, ein Schriftdienst ist nicht beteiligt.",
 "f9a327db03": "Einwilligung und Widerruf",
 "773d5963f4": "Da diese Website keine Cookies setzt und nichts in Ihrem Browser speichert, gibt es nichts einzuwilligen und kein Cookie-Banner. Sollte sich das ändern, fragen wir Sie zuerst um Ihre Einwilligung, und Sie können Ihre Wahl jederzeit ändern.",
 "c5ddf69de0": "Sie können jederzeit alles löschen, was eine Website in Ihrem Browser gespeichert hat, indem Sie deren Websitedaten entfernen (meist unter Einstellungen, dann Datenschutz, dann Cookies und Websitedaten), oder Cookies in Ihren Browsereinstellungen vollständig blockieren. Diese Website funktioniert dann genau gleich.",
@@ -888,5 +887,6 @@
 "cdbc582fc3": "Wir konnten diese Seite nicht finden. Vielleicht wurde sie verschoben.",
 "70f8bb9a8a": "Startseite",
 "9ff7cffe96": "Diese Seite wurde nicht gefunden.",
-"bc3023b360": "Seite nicht gefunden"
+"bc3023b360": "Seite nicht gefunden",
+"434bc038c5": "Wir verwenden auf dieser Website weder Analyse noch Werbung noch Social-Media-Tracking. Fotos werden von den Servern unserer Bildbereitstellungsdienste geladen, die die üblichen technischen Informationen (etwa Ihre IP-Adresse) erhalten, die jede Website beim Ausliefern eines Bildes bekommt. Die Website nutzt die Schriften Ihres Geräts, ein Schriftdienst ist nicht beteiligt."
 }
