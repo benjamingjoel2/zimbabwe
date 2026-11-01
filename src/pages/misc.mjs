@@ -203,56 +203,50 @@ function enquirePages() {
   ];
 }
 
-// Legal pages: complete drafts for an enquiry-led, tailor-made travel service.
-// Have a lawyer review them before launch.
+// Legal pages (owner checklist, 1 November 2026). The Cookie Policy matches the site: no cookies, no browser storage, no analytics.
 function privacyPage() {
   return {
     path: '/privacy/',
-    title: 'Privacy policy',
-    description: 'How Mosi Travel collects, uses and protects your personal information.',
-    body: `${pageHead({ eyebrow: 'Legal', title: 'Privacy policy', lede: 'Last updated 30 October 2026.' })}
+    title: "Privacy Policy",
+    description: "How Mosi Travel collects, uses and protects your personal data when you visit this website, send us an enquiry or book a trip.",
+    body: `${pageHead({ eyebrow: 'Legal', title: "Privacy Policy", lede: "How Mosi Travel collects, uses and protects your personal data when you visit this website, send us an enquiry or book a trip." })}
 <section class="section-tight wrap"><div class="prose">
-  <h2>Who we are</h2>
-  <p>Mosi Travel plans tailor-made journeys in Zimbabwe. In this policy, “we”, “us” and “our” mean Mosi Travel, of 28 Walterhill, 28 Walterhill Avenue, Harare, Zimbabwe. We are responsible for the personal information you share with us through this website.</p>
-  <p>If you have any question about this policy or your information, email us at <a href="mailto:mositravel@tourground.com">mositravel@tourground.com</a>.</p>
-  <h2>What we collect</h2>
-  <p>We only collect what you choose to give us, and what we need to answer you and plan your trip:</p>
-  <ul>
-    <li>Contact details you enter in the enquiry form: your name, email address and, if you give it, a phone number. If the form opens your own email app, the enquiry is sent from your email account.</li>
-    <li>Trip details: who is travelling, approximate dates, interests, travel style and anything else you tell us. Please only share health, dietary or accessibility information if you want us to take it into account.</li>
-    <li>Messages and emails you send us, and our replies.</li>
-    <li>If you go on to travel with us: the details our partners need to deliver your trip, such as passport names, dates of birth, flight details and emergency contacts.</li>
-    <li>Basic technical information that any web server receives (such as your IP address, browser type and the pages requested), kept briefly in server logs for security and to keep the site running.</li>
-  </ul>
-  <h2>How we use it and why</h2>
-  <ul>
-    <li>To answer your enquiry and prepare a tailor-made proposal (steps you ask us to take before entering into a contract).</li>
-    <li>To arrange and look after your trip if you book (performance of our contract with you).</li>
-    <li>To send our newsletter or guide, only if you sign up for it (your consent, which you can withdraw at any time).</li>
-    <li>To keep records we are required to keep, for example for accounting and tax (legal obligation).</li>
-    <li>To keep the website secure and working (our legitimate interests).</li>
-  </ul>
-  <p>We do not sell your information, and we do not use it for automated decision-making or profiling.</p>
-  <h2>Who we share it with</h2>
-  <p>We only share your information where it is needed for the purposes above:</p>
-  <ul>
-    <li>With the lodges, camps, hotels, guides, drivers, airlines and other suppliers who deliver your trip, when you book.</li>
-    <li>Our website host, which serves the site and keeps short-lived technical logs.</li>
-    <li>Our email provider, which receives the enquiries you send and carries our replies.</li>
-    <li>With professional advisers or authorities where the law requires it.</li>
-  </ul>
-  <p>Some of these suppliers and service providers are outside the country you live in. Where we transfer your information internationally, we take steps to make sure it is protected to the standard required by law.</p>
-  <h2>How long we keep it</h2>
-  <p>We keep enquiries for up to two years after our last contact so we can pick up where we left off if you come back to us. If you travel with us, we keep booking records for as long as accounting and tax law requires (usually up to seven years). Newsletter details are kept until you unsubscribe.</p>
-  <h2>Your rights</h2>
-  <p>Depending on where you live, you have the right to ask for a copy of the information we hold about you, to have it corrected or deleted, to restrict or object to how we use it, to receive it in a portable format, and to withdraw your consent at any time. To use any of these rights, email <a href="mailto:mositravel@tourground.com">mositravel@tourground.com</a>. We will reply within one month.</p>
-  <p>If you are unhappy with how we have handled your information, please tell us first so we can put it right. You can also complain to the data-protection authority where you live or to the Postal and Telecommunications Regulatory Authority of Zimbabwe (POTRAZ), the data-protection authority under the Cyber and Data Protection Act.</p>
-  <h2>Security</h2>
-  <p>Our website is served over an encrypted connection (HTTPS), and we limit access to your information to the people who need it to plan and run your trip.</p>
-  <h2>Cookies and local storage</h2>
-  <p>How this website uses cookies and your browser’s storage is explained in our <a href="/cookies/">Cookie Policy</a>.</p>
-  <h2>Changes to this policy</h2>
-  <p>We may update this policy from time to time. The date at the top of the page shows when it last changed.</p>
+<p>Last updated: 1 November 2026</p>
+<h2>Who we are</h2>
+<p>Mosi Travel plans and arranges tailor-made trips. We are the controller of the personal data described in this policy.</p>
+<p>Address: 28 Walterhill, 28 Walterhill Avenue, Harare, Zimbabwe</p>
+<p>Email: <a href="mailto:mositravel@tourground.com">mositravel@tourground.com</a></p>
+<h2>What data we collect</h2>
+<ul><li>Enquiry details: what you enter in our enquiry form or send us by email, such as your name, email address, travel dates, number of travellers, interests, budget and your message.</li><li>Booking details: when you book, what we need to arrange your trip, such as the full names of travellers as shown in their passports, dates of birth, nationality, arrival and departure details, dietary requirements and, only if you choose to share them, health or mobility needs.</li><li>Correspondence: the emails and messages you exchange with us.</li><li>Technical data: when you visit the site, our hosting provider automatically records server logs with your IP address, browser type, the pages requested and the date and time. They are used only to run the site securely and to fix errors.</li><li>Browser storage: the small items described in our cookie policy.</li></ul>
+<p>We do not collect payment card details through this website, and the site uses no analytics or advertising trackers.</p>
+<h2>Why we use it and our legal bases</h2>
+<ul><li>To answer your enquiry and prepare a proposal: steps taken at your request before entering into a contract, and our legitimate interest in replying to people who contact us.</li><li>To book and run your trip, including passing the necessary details to the suppliers who deliver it: performance of our contract with you.</li><li>To take account of health or mobility information you choose to share: your explicit consent, which you can withdraw at any time.</li><li>To keep the site secure and working, and to handle complaints or legal claims: our legitimate interests.</li><li>To keep accounting and tax records: compliance with our legal obligations.</li><li>To send you news, only if you have asked for it: your consent, which you can withdraw at any time.</li></ul>
+<p>We never sell your personal data, and we do not use it for automated decision-making or profiling.</p>
+<h2>Who we share it with</h2>
+<ul><li>Vercel Inc., which hosts this website and processes the technical logs described above.</li><li>Our email provider, which stores and delivers the messages we exchange with you.</li><li>The travel suppliers who deliver your trip, such as hotels, lodges and camps, transport and transfer companies, airlines, activity providers and park or permit authorities. Each receives only what it needs for your booking.</li><li>Professional advisers, public authorities or courts, where the law requires it or to establish or defend legal claims.</li></ul>
+<p>When you send the enquiry form, it opens your own email program with your message ready to send to us, so the form itself does not transmit your data to any third party.</p>
+<p>Our service providers act on our instructions and must keep your data secure and confidential.</p>
+<h2>International transfers</h2>
+<p>Vercel and some of our other providers may process data in the United States and other countries. Your trip takes place in Zimbabwe, so the suppliers there receive the details they need. Where data protection law requires it, we rely on adequacy decisions, standard contractual clauses or equivalent safeguards, or on the transfer being necessary to perform the contract you asked us for. You can ask us for details of these safeguards.</p>
+<h2>How long we keep it</h2>
+<ul><li>Enquiries that do not lead to a booking: up to two years after our last contact.</li><li>Booking records: as long as tax and accounting law requires, usually up to seven years after your trip.</li><li>Health or mobility details: deleted once your trip is over, unless you ask us to keep them for a future trip.</li><li>Server logs: kept by our hosting provider for a short period, normally no more than 30 days.</li></ul>
+<h2>How we protect it</h2>
+<p>We keep personal data in access-controlled systems, use encrypted connections (HTTPS) on this site and share data only as described here. If a breach affects your data and puts your rights at risk, we will tell you without undue delay.</p>
+<h2>Your rights</h2>
+<p>Depending on where you live, you have the right to:</p>
+<ul><li>access the personal data we hold about you;</li><li>have inaccurate data corrected (rectification);</li><li>have your data deleted (erasure);</li><li>restrict how we use your data (restriction);</li><li>receive your data in a portable format or have it sent to someone else (portability);</li><li>object to our use of your data based on legitimate interests, and to direct marketing at any time (objection);</li><li>withdraw your consent at any time, without affecting what we did before;</li><li>complain to a data protection supervisory authority, in particular in the country where you live or work.</li></ul>
+<p>To exercise any of these rights, email us. We reply within one month.</p>
+<p>Email: <a href="mailto:mositravel@tourground.com">mositravel@tourground.com</a></p>
+<h2>Cookies</h2>
+<p>This site uses only the browser storage described in our cookie policy.</p>
+<p><a href="/cookies/">Read our cookie policy</a></p>
+<h2>Children</h2>
+<p>This website is not aimed at children and we do not knowingly collect data from children under 16. We only process details of children travelling with their family when a parent or guardian gives them to us for a booking.</p>
+<h2>Changes to this policy</h2>
+<p>We may update this policy when our services or the law change. The date at the top shows when it was last updated.</p>
+<h2>Contact</h2>
+<p>Questions about this policy or your personal data: write to Mosi Travel at the address above, or email us.</p>
+<p>Email: <a href="mailto:mositravel@tourground.com">mositravel@tourground.com</a></p>
 </div></section>`,
   };
 }
@@ -260,43 +254,57 @@ function privacyPage() {
 function termsPage() {
   return {
     path: '/terms/',
-    title: 'Booking terms',
-    description: 'The terms that apply when Mosi Travel plans and arranges a tailor-made Zimbabwe journey for you.',
-    body: `${pageHead({ eyebrow: 'Legal', title: 'Booking terms', lede: 'Last updated 30 October 2026.' })}
+    title: "Booking Terms",
+    description: "The terms that apply when you book a trip with Mosi Travel. Please read them before you book: when you confirm a booking, you accept them.",
+    body: `${pageHead({ eyebrow: 'Legal', title: "Booking Terms", lede: "The terms that apply when you book a trip with Mosi Travel. Please read them before you book: when you confirm a booking, you accept them." })}
 <section class="section-tight wrap"><div class="prose">
-  <h2>About these terms</h2>
-  <p>These terms apply to the tailor-made travel arrangements that Mosi Travel, of 28 Walterhill, 28 Walterhill Avenue, Harare, Zimbabwe (“we”, “us”), plans for you. Please read them before you confirm a booking. When you confirm a booking you accept them on behalf of everyone in your party, and you confirm that you are at least 18 and have their authority to do so.</p>
-  <p>These are general principles. The quote and booking confirmation we send you set out the specific arrangements, deposit, balance due date and cancellation charges for your trip, and they form part of your contract with us.</p>
-  <h2>Enquiries and quotes</h2>
-  <p>Sending us an enquiry through the website, by email or any other way does not commit you to anything. We will reply with ideas and, when you are ready, a written quote.</p>
-  <p>Quotes are based on availability and supplier rates at the time we write them. Nothing is held for you until you confirm and we confirm back in writing. We will always tell you if anything in a quote changes before you book.</p>
-  <h2>Booking, deposit and balance</h2>
-  <p>Your booking is confirmed when you accept our quote, we receive the deposit stated in it, and we send you a written booking confirmation. Your contract with us starts from that point.</p>
-  <p>The balance is due by the date shown in your quote and booking confirmation. If it is not paid on time, we may treat the booking as cancelled by you and apply the cancellation charges below.</p>
-  <p>Some suppliers (for example certain lodges, flights and permits) need full payment when they are booked. Where this applies we will tell you before you confirm.</p>
-  <h2>Prices</h2>
-  <p>The price of your trip is the price in your booking confirmation. We will only change it after confirmation if a cost outside our control changes, such as government taxes, park or conservation fees, or fuel surcharges set by a carrier, and we will show you how any change is worked out. If a change is significant, you may cancel without paying cancellation charges.</p>
-  <h2>Changes you ask for</h2>
-  <p>We will always try to help if you want to change your trip after booking. Changes depend on availability and on the suppliers’ own terms, and any extra cost they charge will be passed on to you, together with any reasonable administration cost we tell you about in advance.</p>
-  <h2>If you cancel</h2>
-  <p>To cancel, tell us in writing. Cancellation charges depend on how close to departure you cancel and on the charges our suppliers make to us. They are set out in your quote and booking confirmation. We will always try to keep them as low as we can, and we will refund anything we are able to recover.</p>
-  <h2>If we change or cancel your trip</h2>
-  <p>Occasionally we have to make changes, for example when a camp or flight is no longer available. If we make a significant change before you travel, we will tell you as soon as possible and offer you a choice of accepting it, taking a comparable alternative, or cancelling with a full refund of what you have paid us.</p>
-  <p>We may need to cancel or change arrangements because of events outside anyone’s control, such as extreme weather, natural disasters, epidemics, civil unrest or official travel advice against travel. In that case we will help you rearrange, and refund what we are able to recover from suppliers.</p>
-  <h2>Travel insurance</h2>
-  <p>Comprehensive travel insurance is a condition of travelling with us. It must cover cancellation, medical treatment, emergency evacuation and repatriation, and any activities you plan to do. Please arrange it when you book so you are covered if you have to cancel.</p>
-  <h2>Passports, visas and health</h2>
-  <p>You are responsible for having a valid passport, any visas or electronic travel authorisations, and any vaccinations or health certificates required for your journey, including for transit countries. We are happy to share general guidance, but entry rules change, so please check them with the relevant embassy or official government source and with a travel-health professional well before you travel.</p>
-  <h2>Our responsibility to you</h2>
-  <p>We will plan your trip with reasonable skill and care, and we choose our suppliers carefully. Many services are provided by independent suppliers under their own terms and the laws of the country where they operate.</p>
-  <p>We are not responsible for any loss, injury or damage caused by you or anyone in your party, by a third party not connected with the arrangements we provide, or by events outside our control. Where the law allows, our liability is limited to the price of your trip. Nothing in these terms limits liability that cannot legally be limited, such as liability for death or personal injury caused by our negligence.</p>
-  <p>Wildlife is wild and outdoor activities carry some risk. Please follow the advice of your guides and lodge staff at all times.</p>
-  <h2>Your responsibilities</h2>
-  <p>Please give us accurate information, including the names on your passports and any medical, dietary or accessibility needs that affect your trip. Please respect local laws, customs and the rules of the parks and places you visit.</p>
-  <h2>Complaints</h2>
-  <p>If something is not right while you are travelling, tell your guide, the property or us straight away so it can be put right on the spot. If it cannot be resolved, write to us at <a href="mailto:mositravel@tourground.com">mositravel@tourground.com</a> within 28 days of your return and we will reply in full.</p>
-  <h2>Governing law</h2>
-  <p>These terms and any dispute connected with them are governed by the law that applies to your contract with us. Nothing in them affects your rights as a consumer under the law of the country where you live.</p>
+<p>Last updated: 1 November 2026</p>
+<h2>1. Who we are</h2>
+<p>Mosi Travel (“we”, “us”) plans and arranges tailor-made trips. These terms, together with your proposal and booking confirmation, form your contract with us.</p>
+<p>Address: 28 Walterhill, 28 Walterhill Avenue, Harare, Zimbabwe</p>
+<p>Email: <a href="mailto:mositravel@tourground.com">mositravel@tourground.com</a></p>
+<h2>2. How a booking is made and confirmed</h2>
+<p>Every trip starts with an enquiry. We then send you a written proposal with the itinerary, the price and what is included. Prices on this website are “from” prices per person, given as a guide; your final price is the one confirmed in writing in your proposal.</p>
+<p>Your booking is made when you accept the proposal in writing and pay the deposit, and it is confirmed when we send you a written booking confirmation. The person who makes the booking must be at least 18 years old and accepts these terms on behalf of everyone travelling.</p>
+<h2>3. Deposit, balance and prices</h2>
+<p>A deposit, stated in your proposal, is due when you book. The balance is due on the date shown in your booking confirmation, normally 60 days before departure. If you book less than 60 days before departure, the full price is due when you book.</p>
+<p>If the balance is not paid on time, we may treat the booking as cancelled by you and apply the cancellation charges below.</p>
+<p>Once your booking is confirmed we will not increase the price, except where taxes, park or entry fees or fuel costs imposed by third parties change. We will tell you as soon as possible and show how the change was calculated. If the increase is more than 8% of the trip price, you may cancel and receive a full refund.</p>
+<h2>4. What is included</h2>
+<p>Your proposal and booking confirmation list exactly what is included, typically the accommodation, transport, transfers and activities in your itinerary, and the meals stated.</p>
+<p>Unless stated otherwise, the price does not include international flights, travel insurance, visas, vaccinations, drinks, tips, personal expenses, optional activities or anything not listed as included.</p>
+<h2>5. Changes by you</h2>
+<p>If you want to change your trip after it is confirmed, tell us in writing. We will do our best to make the change, subject to availability. You pay any costs charged by suppliers and any difference in price. Changing your travel dates, or a major change close to departure, may be treated as a cancellation.</p>
+<p>You may transfer your booking to another person who meets all the conditions of the trip by telling us in writing at least 14 days before departure. You and that person are jointly responsible for any balance and for the extra costs the transfer causes.</p>
+<h2>6. Cancellation by you</h2>
+<p>You may cancel at any time by writing to us; the cancellation takes effect on the day we receive it. Unless your booking confirmation sets different charges, we charge the following share of the total trip price:</p>
+<ul><li>More than 60 days before departure: loss of the deposit</li><li>60 to 31 days before departure: 50% of the trip price</li><li>30 to 15 days before departure: 75% of the trip price</li><li>14 days or less before departure, or if you do not travel: 100% of the trip price</li></ul>
+<p>Some elements, such as flights, permits and certain peak-season stays, cannot be refunded once booked; your proposal says so where this applies. Your travel insurance may cover cancellation charges.</p>
+<h2>7. Changes and cancellation by us</h2>
+<p>We plan carefully, but we sometimes have to change arrangements. If we make a minor change, such as a comparable hotel or a different route, we will tell you as soon as we can. If we have to make a significant change or cancel your trip, we will tell you promptly and you may accept the change, choose a comparable alternative, or cancel and receive a full refund of everything you have paid us.</p>
+<p>For departures with a minimum number of travellers, we may cancel if that number is not reached, telling you at least 45 days before departure and refunding everything you have paid us.</p>
+<h2>8. Travel insurance</h2>
+<p>Travel insurance is a condition of booking. Your policy must cover cancellation, medical treatment, emergency evacuation and repatriation, and the activities in your itinerary. Please send us the policy details before you travel.</p>
+<h2>9. Passports, visas and health</h2>
+<p>You are responsible for holding a valid passport, any visas or entry permits, and the vaccinations and health documents your trip requires, and for checking the rules that apply to your nationality. Entry and health rules change; we share the information we have, but please confirm it with the relevant embassy, official government sources and your doctor before you travel.</p>
+<h2>10. Our responsibility</h2>
+<p>We are responsible for arranging the services in your booking confirmation with reasonable skill and care. If any part of your trip is not provided as agreed, tell the supplier and us straight away so we can try to put it right.</p>
+<p>We are not responsible for loss, damage or delay caused by you or a member of your party, by a third party unconnected with the services we arranged, or by unusual and unforeseeable circumstances beyond our control. Where international conventions limit a supplier’s liability, for example for flights, our liability is limited in the same way. Except for death or personal injury caused by our negligence, our liability is limited to the total price of your trip. Nothing in these terms limits rights you have under consumer law that cannot be excluded.</p>
+<h2>11. Your behaviour</h2>
+<p>Please respect the laws and customs of the places you visit, follow the safety instructions of our suppliers and local hosts, and our reasonable instructions. If your behaviour puts others at risk or seriously disturbs them, we or the supplier may end your trip without refund, and you will pay any costs that result.</p>
+<h2>12. Complaints</h2>
+<p>If something goes wrong during your trip, tell the supplier and us straight away so we can try to fix it on the spot. If it is not resolved, email us within 28 days of your return. We acknowledge complaints within 14 days and aim to reply in full within 28 days.</p>
+<p>Email: <a href="mailto:mositravel@tourground.com">mositravel@tourground.com</a></p>
+<h2>13. Force majeure</h2>
+<p>We are not liable for any failure or delay caused by unusual and unforeseeable circumstances beyond our control whose consequences could not have been avoided even with all due care, such as war, civil unrest, terrorism, natural disaster, epidemic, severe weather, strikes, or the closure of airports, borders or parks. If such circumstances prevent your trip from going ahead as booked, we will offer you a comparable alternative or a refund of the money you have paid us.</p>
+<h2>14. Data protection</h2>
+<p>We use your personal data to arrange your trip, as explained in our privacy policy.</p>
+<p><a href="/privacy/">Read our privacy policy</a></p>
+<h2>15. Governing law</h2>
+<p>These terms, and any dispute arising from them, are governed by the law of Zimbabwe, and the courts of Zimbabwe have jurisdiction. If you are a consumer, you may also bring proceedings in the courts of the country where you live, and you keep the protection of the mandatory consumer law of that country.</p>
+<h2>16. Contact</h2>
+<p>Questions about these terms or your booking:</p>
+<p>Email: <a href="mailto:mositravel@tourground.com">mositravel@tourground.com</a></p>
 </div></section>`,
   };
 }
@@ -304,23 +312,27 @@ function termsPage() {
 function cookiesPage() {
   return {
     path: '/cookies/',
-    title: 'Cookie policy',
-    description: 'How the Mosi Travel website uses cookies and browser storage.',
-    body: `${pageHead({ eyebrow: 'Legal', title: 'Cookie policy', lede: 'Last updated 30 October 2026.' })}
+    title: "Cookie Policy",
+    description: "What the Mosi Travel website stores in your browser, and why.",
+    body: `${pageHead({ eyebrow: 'Legal', title: "Cookie Policy", lede: "What the Mosi Travel website stores in your browser, and why." })}
 <section class="section-tight wrap"><div class="prose">
-  <h2>What cookies and local storage are</h2>
-  <p>Cookies are small text files a website saves in your browser. Local storage is a similar feature that lets a website remember information on your own device. Neither is sent to us unless a page specifically reads it.</p>
-  <h2>Cookies we use</h2>
-  <p>This website does not set any cookies, and it does not use advertising or tracking cookies of any kind.</p>
-  <h2>Local storage we use</h2>
-  <p>This website does not use local storage.</p>
-  <h2>Analytics and third parties</h2>
-  <p>We do not use analytics, advertising or social-media tracking on this website. Photographs are loaded from our image delivery providers’ servers, which receive the standard technical information (such as your IP address) that any website receives when it delivers an image. The site uses your device’s own fonts, so no font service is involved.</p>
-  <h2>Consent and how to withdraw it</h2>
-  <p>Because this website sets no cookies and stores nothing in your browser, there is nothing to consent to and no cookie banner. If that ever changes, we will ask for your consent first and you will be able to change your choice at any time.</p>
-  <p>You can clear anything a website has stored in your browser at any time by clearing its site data (usually under Settings, then Privacy, then Cookies and site data), or block cookies entirely in your browser settings. This website will work exactly the same.</p>
-  <h2>Questions</h2>
-  <p>If you have any questions about this policy, email us at <a href="mailto:mositravel@tourground.com">mositravel@tourground.com</a>. Our <a href="/privacy/">Privacy Policy</a> explains how we handle personal information.</p>
+<p>Last updated: 1 November 2026</p>
+<h2>What cookies are</h2>
+<p>Cookies are small text files that a website saves in your browser. Similar technologies, such as local storage and session storage, let a site keep small pieces of information in your browser. In this policy, “cookies” covers all of them.</p>
+<h2>What this site uses</h2>
+<p>This site sets no cookies and stores nothing in your browser.</p>
+<p>We do not use analytics, advertising or social-media tracking cookies.</p>
+<h2>Consent</h2>
+<p>Essential items do not need your consent because the site, or a feature you ask for, cannot work without them. If we ever add cookies that are not essential, such as analytics, we will ask for your consent first and update this policy.</p>
+<h2>Third-party content</h2>
+<ul><li>This website is hosted by Vercel, which processes your IP address in its server logs to deliver the pages. Vercel sets no cookies on this site.</li><li>Some photographs are delivered from third-party image servers. Your browser sends your IP address to those servers so they can deliver the images; they set no cookies on this site.</li><li>Our fonts are served from this website, so no font provider receives your data.</li><li>We do not embed maps, videos, social-media widgets or advertising.</li></ul>
+<h2>How to manage or disable cookies</h2>
+<p>You can view and delete cookies and site data at any time in your browser settings, and you can block them altogether. Look for “cookies” or “site data” in the privacy settings of Chrome, Firefox, Safari or Edge; each browser’s help pages explain the steps.</p>
+<h2>Changes to this policy</h2>
+<p>We will update this policy if the way this site uses cookies changes. The date at the top shows the latest version.</p>
+<h2>Contact</h2>
+<p>Questions about this policy:</p>
+<p>Email: <a href="mailto:mositravel@tourground.com">mositravel@tourground.com</a></p>
 </div></section>`,
   };
 }
