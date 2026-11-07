@@ -1,5 +1,6 @@
-// Photos used on the site, from Unsplash (default) or Pexels (`source:
-// 'pexels'`). Each photo's recorded location (copied verbatim into `location`)
+// Photos used on the site, from Unsplash (default), Pexels (`source:
+// 'pexels'`) or Wikimedia Commons (`source: 'local'`: self-hosted from
+// src/photos/, credited on the page as its licence requires). Each photo's recorded location (copied verbatim into `location`)
 // was checked against the place it is used for; see README.md › Photos before
 // adding more. `alt` is our own description.
 
@@ -313,5 +314,23 @@ export default {
     location: "Mutare, Manicaland Province, Zimbabwe",
     raw: 'https://images.pexels.com/photos/3991980/pexels-photo-3991980.jpeg',
     alt: "Pink bauhinia flowers against a blue sky in Mutare",
+  },
+  'great-zimbabwe-tower': {
+    source: 'local',
+    file: 'great-zimbabwe-tower',
+    credit: 'Andrew Moore',
+    license: 'CC BY-SA 2.0',
+    page: 'https://commons.wikimedia.org/wiki/File:Conical_Tower_-_Great_Enclosure_III_(33736918448).jpg',
+    location: 'Great Enclosure, Great Zimbabwe',
+    alt: 'The conical tower inside the Great Enclosure at Great Zimbabwe, its dry-stone courses curving beside a high wall',
+  },
+  'gonarezhou-rossi-pool': {
+    source: 'local',
+    file: 'gonarezhou-rossi-pool',
+    credit: 'Babakathy',
+    license: 'CC0',
+    page: 'https://commons.wikimedia.org/wiki/File:Rossi_pool.JPG',
+    location: 'Rossi Pool, Gonarezhou',
+    alt: 'Rossi Pool on the Mwenezi River in Gonarezhou, a long reach of water between rocks and sand seen from a stone hide',
   },
 };

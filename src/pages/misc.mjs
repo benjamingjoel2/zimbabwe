@@ -16,7 +16,7 @@ function staysPage() {
     lede: 'Small camps and lodges chosen for their guiding, their position and how few other people are around, not for thread counts.',
   })}
 <section class="section-tight wrap">
-  <div class="note" style="max-width:44rem"><p><strong>Placeholder names.</strong> The places below describe the kinds of camps and lodges our journeys use. Their names are stand-ins until partner agreements are confirmed.</p></div>
+  <div class="note" style="max-width:44rem"><p>The places below describe the kinds of camps and lodges our journeys use. We name the camp or lodge in your proposal.</p></div>
 </section>
 <section class="section-tight wrap">
   <h2>What we look for</h2>

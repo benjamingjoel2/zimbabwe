@@ -12,35 +12,10 @@ const placeCaption = (key) => {
   return country && country !== 'Zimbabwe' ? `${parts[0]}, ${country}` : parts[0];
 };
 
-// Drawn panels for places without a location-verified photo. Simple shapes in
-// the brand palette: coursed stone with a chevron band for Great Zimbabwe,
-// layered cliffs over a sand river for Gonarezhou.
-const drawings = {
-  'great-zimbabwe': `<svg viewBox="0 0 480 320" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
-    <rect width="480" height="320" fill="var(--granite)"/>
-    ${Array.from({ length: 13 }, (_, r) => {
-      const y = 70 + r * 19;
-      const off = r % 2 ? 0 : 18;
-      return Array.from({ length: 15 }, (_, c) => `<rect x="${c * 36 - off}" y="${y}" width="33" height="16" rx="2" fill="${r === 3 ? 'var(--copper)' : 'var(--graniteMid)'}" opacity="${0.55 + ((r * 7 + c * 3) % 5) / 12}"/>`).join('');
-    }).join('')}
-    <polyline points="${Array.from({ length: 21 }, (_, i) => `${i * 24},${i % 2 ? 108 : 124}`).join(' ')}" fill="none" stroke="var(--offwhite)" stroke-width="4"/>
-    <path d="M0 70 Q240 30 480 70 L480 0 L0 0Z" fill="var(--zambezi)"/>
-  </svg>`,
-  gonarezhou: `<svg viewBox="0 0 480 320" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
-    <rect width="480" height="320" fill="var(--copperLight)"/>
-    <path d="M0 150 L60 120 L140 128 L210 96 L300 104 L380 84 L480 98 L480 220 L0 220Z" fill="var(--msasa)"/>
-    <path d="M0 175 L480 160 L480 200 L0 205Z" fill="var(--copper)" opacity="0.8"/>
-    <path d="M0 200 L480 190 L480 228 L0 232Z" fill="var(--offwhite)" opacity="0.55"/>
-    <path d="M0 232 C120 220 200 250 320 236 S440 226 480 232 L480 320 L0 320Z" fill="var(--offwhite)"/>
-    <path d="M40 270 C140 258 260 286 440 266" fill="none" stroke="var(--zambezi)" stroke-width="5" stroke-linecap="round" opacity="0.6"/>
-  </svg>`,
-};
-
+// A place without a verified photo gets a plain colour block (never a drawing,
+// never a photo of somewhere else).
 function noPhoto(d, big = false) {
-  return `<figure class="photo drawing${big ? ' drawing-big' : ''}">
-  ${drawings[d.slug] || ''}
-  <figcaption>Illustration. ${big ? 'We have not yet found a photo of this place whose location we could verify, so we show a drawing instead of a mislabelled picture.' : ''}</figcaption>
-</figure>`;
+  return `<figure class="photo no-photo${big ? ' no-photo-big' : ''}" aria-hidden="true"></figure>`;
 }
 
 export function destCard(d, compact = false) {
@@ -106,7 +81,7 @@ ${
   localStays.length
     ? `<section class="section-tight wrap">
   <h2>Where we stay</h2>
-  <p class="muted small">Placeholder names: these describe the kind of place we use here.</p>
+  <p class="muted small">The kind of place we use here. We name it in your proposal.</p>
   <ul class="plain">${localStays.map((s) => `<li><a href="/stays/#${s.name.toLowerCase().replace(/\W+/g, '-')}">${esc(s.name)}</a>: ${esc(s.type)}</li>`).join('')}</ul>
 </section>`
     : ''

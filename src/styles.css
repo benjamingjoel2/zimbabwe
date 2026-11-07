@@ -307,9 +307,9 @@ fieldset { border: 0; padding: 0; margin: 0; }
 }
 
 /* Drawn panels (places without a verified photo) ------------------------ */
-.drawing svg { display: block; width: 100%; aspect-ratio: 3 / 2; height: auto; border-radius: var(--radius); }
-.card .drawing svg { border-radius: 0; }
-.drawing-big svg { aspect-ratio: 4 / 3; }
+.no-photo { aspect-ratio: 3 / 2; background: var(--granite); border-radius: var(--radius); }
+.card .no-photo { border-radius: 0; }
+.no-photo-big { aspect-ratio: 4 / 3; }
 
 /* When-to-go table ------------------------------------------------------ */
 .season-table { min-width: 46rem; font-size: 0.85rem; }
