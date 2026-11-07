@@ -171,7 +171,7 @@ export default [
     slug: 'great-zimbabwe',
     name: 'Great Zimbabwe',
     region: 'South-east, near Masvingo',
-    photo: null,
+    photo: 'great-zimbabwe-tower',
     gallery: [],
     summary:
       'The stone city that gave the country its name. Massive dry-stone walls built without mortar, best understood with time and a good historian.',
@@ -201,7 +201,7 @@ export default [
     slug: 'gonarezhou',
     name: 'Gonarezhou National Park',
     region: 'Far south-east, on the Mozambique border',
-    photo: null,
+    photo: 'gonarezhou-rossi-pool',
     gallery: [],
     summary:
       '“The place of elephants”: red sandstone cliffs, big sand rivers and very few other vehicles. Wild, remote and recovering well.',

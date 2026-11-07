@@ -1,10 +1,10 @@
-// PLACEHOLDER stays. The names are invented stand-ins for the kinds of
-// properties the journeys use; replace them with real partners (and real
-// photos with verified locations) before launch.
+// Stays, described by the kind of place and where it is, never by an invented
+// name. Replace them with the real partner camps (and their own photos, see
+// IMAGES-NEEDED.md) once agreements are confirmed.
 
 export default [
   {
-    name: 'Winterthorn Camp',
+    name: 'A seasonal camp on the Mana Pools floodplain',
     area: 'Mana Pools',
     dest: 'mana-pools',
     type: 'Seasonal tented camp, 6–8 tents',
@@ -12,7 +12,7 @@ export default [
     goodFor: ['Walking', 'Canoeing', 'Photography'],
   },
   {
-    name: 'Kalahari Pan Lodge',
+    name: 'A small lodge on a Hwange waterhole',
     area: 'Hwange, private concession',
     dest: 'hwange',
     type: 'Small lodge overlooking a pumped waterhole',
@@ -20,7 +20,7 @@ export default [
     goodFor: ['Walking', 'Elephants', 'First safari'],
   },
   {
-    name: 'Teak Ridge Bush Camp',
+    name: 'A walking camp in south-east Hwange',
     area: 'Hwange, south-east',
     dest: 'hwange',
     type: 'Simple bush camp, 4 tents',
@@ -28,7 +28,7 @@ export default [
     goodFor: ['Walking', 'Remote'],
   },
   {
-    name: 'Gorge House',
+    name: 'A guesthouse near the river at Victoria Falls',
     area: 'Victoria Falls',
     dest: 'victoria-falls',
     type: 'Guesthouse near the river',
@@ -36,7 +36,7 @@ export default [
     goodFor: ['Falls', 'First and last nights'],
   },
   {
-    name: 'Drowned Forest Island Camp',
+    name: 'An island camp on Lake Kariba',
     area: 'Lake Kariba',
     dest: 'lake-kariba',
     type: 'Island camp, 5 chalets',
@@ -44,7 +44,7 @@ export default [
     goodFor: ['Slow days', 'Birding', 'Fishing'],
   },
   {
-    name: 'Kopje Lodge',
+    name: 'A lodge among the Matobo granite',
     area: 'Matobo Hills',
     dest: 'matobo-hills',
     type: 'Stone-and-thatch lodge among granite domes',
@@ -52,7 +52,7 @@ export default [
     goodFor: ['History', 'Rhino', 'Families'],
   },
   {
-    name: 'Mutirikwi Cottage',
+    name: 'Cottages on Lake Mutirikwi',
     area: 'Near Great Zimbabwe',
     dest: 'great-zimbabwe',
     type: 'Lakeside cottages',
@@ -60,7 +60,7 @@ export default [
     goodFor: ['History', 'Road trips'],
   },
   {
-    name: 'Chilojo Riverbed Camp',
+    name: 'A seasonal camp below the Chilojo Cliffs',
     area: 'Gonarezhou',
     dest: 'gonarezhou',
     type: 'Seasonal tented camp',
@@ -68,7 +68,7 @@ export default [
     goodFor: ['Remote', 'Walking', 'Elephants'],
   },
   {
-    name: 'Nyangani Farmhouse',
+    name: 'An old farmhouse in Nyanga',
     area: 'Nyanga, Eastern Highlands',
     dest: 'eastern-highlands',
     type: 'Old farmhouse with fireplaces',
