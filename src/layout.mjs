@@ -18,8 +18,15 @@ export const esc = (s = '') =>
 export const usedPhotos = new Set();
 
 // Photos come from Unsplash (default) or Pexels (`source: 'pexels'`); both
-// CDNs resize and crop on the fly from URL parameters.
+// CDNs resize and crop on the fly from URL parameters. Wikimedia Commons photos
+// (`source: 'local'`) are downloaded once into src/photos/<key>-<width>.webp and
+// self-hosted; the frame crops them with CSS (object-fit) instead.
+const LOCAL_WIDTHS = [480, 800, 1200, 1600];
 function photoSrc(p, w, h) {
+  if (p.source === 'local') {
+    const fit = LOCAL_WIDTHS.find((x) => x >= w) || LOCAL_WIDTHS[LOCAL_WIDTHS.length - 1];
+    return `/photos/${p.file}-${fit}.webp`;
+  }
   if (p.source === 'pexels') {
     return `${p.raw}?auto=compress&cs=tinysrgb&w=${w}${h ? `&h=${h}&fit=crop` : ''}`;
   }
@@ -44,11 +51,15 @@ export function photo(key, opts = {}) {
     .join(', ');
   const sizes = opts.sizes || '(min-width: 64rem) 50vw, 100vw';
   const loading = opts.eager ? 'fetchpriority="high"' : 'loading="lazy" decoding="async"';
+  // Creative Commons photos carry the credit their licence asks for.
+  const credit = p.credit ? `${opts.caption ? ' · ' : ''}Photo: <a href="${p.page}">${esc(p.credit)}</a>, ${esc(p.license)}` : '';
+  const local = p.source === 'local';
+  const set = local ? LOCAL_WIDTHS.map((w) => `/photos/${p.file}-${w}.webp ${w}w`).join(', ') : srcset;
   return `<figure class="photo ${opts.className || ''}">
-  <img src="${photoSrc(p, 1200, Math.round((1200 * rh) / rw))}" srcset="${srcset}" sizes="${sizes}"
+  <img src="${photoSrc(p, 1200, Math.round((1200 * rh) / rw))}" srcset="${set}" sizes="${sizes}"
     width="${rw * 400}" height="${rh * 400}" alt="${esc(p.alt)}" ${loading}
-    style="background:${p.color || '#D6D0C6'}">
-  ${opts.caption ? `<figcaption>${opts.caption}</figcaption>` : ''}
+    style="background:${p.color || '#D6D0C6'}${local ? `;aspect-ratio:${rw} / ${rh}` : ''}">
+  ${opts.caption || credit ? `<figcaption>${opts.caption || ''}${credit}</figcaption>` : ''}
 </figure>`;
 }
 
