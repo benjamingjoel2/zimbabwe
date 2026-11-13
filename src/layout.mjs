@@ -35,8 +35,9 @@ function photoSrc(p, w, h) {
 }
 
 /**
- * Responsive photo (Unsplash or Pexels). Their licences do not require credit,
- * so none is shown (owner decision); photographer details stay in photos.mjs.
+ * Responsive photo. No credit is shown on or under any photo (owner decision):
+ * Creative Commons photos are credited on /photo-credits/ (see photoCreditsPage
+ * in src/pages/misc.mjs); Unsplash and Pexels details stay in photos.mjs.
  * @param {string} key   key in src/data/photos.mjs
  * @param {object} opts  { ratio: [w,h] crop ratio, sizes, eager, caption, className }
  */
@@ -51,15 +52,13 @@ export function photo(key, opts = {}) {
     .join(', ');
   const sizes = opts.sizes || '(min-width: 64rem) 50vw, 100vw';
   const loading = opts.eager ? 'fetchpriority="high"' : 'loading="lazy" decoding="async"';
-  // Creative Commons photos carry the credit their licence asks for.
-  const credit = p.credit ? `${opts.caption ? ' · ' : ''}Photo: <a href="${p.page}">${esc(p.credit)}</a>, ${esc(p.license)}` : '';
   const local = p.source === 'local';
   const set = local ? LOCAL_WIDTHS.map((w) => `/photos/${p.file}-${w}.webp ${w}w`).join(', ') : srcset;
   return `<figure class="photo ${opts.className || ''}">
   <img src="${photoSrc(p, 1200, Math.round((1200 * rh) / rw))}" srcset="${set}" sizes="${sizes}"
     width="${rw * 400}" height="${rh * 400}" alt="${esc(p.alt)}" ${loading}
     style="background:${p.color || '#D6D0C6'}${local ? `;aspect-ratio:${rw} / ${rh}` : ''}">
-  ${opts.caption || credit ? `<figcaption>${opts.caption || ''}${credit}</figcaption>` : ''}
+  ${opts.caption ? `<figcaption>${opts.caption}</figcaption>` : ''}
 </figure>`;
 }
 
@@ -151,6 +150,7 @@ function footer() {
         <li><a href="/privacy/">Privacy policy</a></li>
         <li><a href="/terms/">Booking terms</a></li>
         <li><a href="/cookies/">Cookie policy</a></li>
+        <li><a href="/photo-credits/">Photo credits</a></li>
       </ul>
     </div>
   </div>

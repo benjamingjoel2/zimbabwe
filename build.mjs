@@ -12,7 +12,7 @@ import falls from './src/pages/falls.mjs';
 import guiding from './src/pages/guiding.mjs';
 import journeys from './src/pages/journeys.mjs';
 import when from './src/pages/when.mjs';
-import misc from './src/pages/misc.mjs';
+import misc, { photoCreditsPage } from './src/pages/misc.mjs';
 import { locales } from './src/layout.mjs';
 
 const require = createRequire(import.meta.url);
@@ -50,6 +50,8 @@ fs.cpSync('src/photos', path.join(OUT, 'photos'), { recursive: true });
 
 // Pages.
 const pages = [home, destinations, falls, guiding, journeys, when, misc].flatMap((fn) => fn());
+// Photo credits last: it lists the pages each Creative Commons photo appears on.
+pages.splice(pages.findIndex((pg) => pg.path === '/404.html'), 0, photoCreditsPage(pages));
 
 const seen = new Set();
 const english = [];

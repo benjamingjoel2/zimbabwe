@@ -1,8 +1,9 @@
 // Quality checks on the built site. Run `npm run build && npm run check`.
 //  1. WCAG AA contrast for every palette pair listed in site.config.mjs
 //  2. Every internal link and asset in dist/ resolves
-//  3. Every <img> has alt text (photo credits are not shown: Unsplash and Pexels
-//     licences do not require them; details stay in src/data/photos.mjs)
+//  3. Every <img> has alt text (no credits are shown on photos: Creative Commons
+//     photos are credited on /photo-credits/; Unsplash and Pexels details stay in
+//     src/data/photos.mjs)
 //  4. Every [F#] fact marker in src/ has an entry in FACTS-TO-VERIFY.md
 import fs from 'node:fs';
 import path from 'node:path';
