@@ -1,6 +1,7 @@
 // Photos used on the site, from Unsplash (default), Pexels (`source:
 // 'pexels'`) or Wikimedia Commons (`source: 'local'`: self-hosted from
-// src/photos/, credited on the page as its licence requires). Each photo's recorded location (copied verbatim into `location`)
+// src/photos/, credited on /photo-credits/ as its licence requires; no credit
+// is shown on the photos). Each photo's recorded location (copied verbatim into `location`)
 // was checked against the place it is used for; see README.md › Photos before
 // adding more. `alt` is our own description.
 

@@ -4,6 +4,7 @@ import stays from '../data/stays.mjs';
 import destinations from '../data/destinations.mjs';
 import journeys from '../data/journeys.mjs';
 import posts from '../data/journal.mjs';
+import photos from '../data/photos.mjs';
 
 const slugify = (s) => s.toLowerCase().replace(/\W+/g, '-');
 const fmtDate = (iso) =>
@@ -333,6 +334,50 @@ function cookiesPage() {
 <h2>Contact</h2>
 <p>Questions about this policy:</p>
 <p>Email: <a href="mailto:mositravel@tourground.com">mositravel@tourground.com</a></p>
+</div></section>`,
+  };
+}
+
+// Photo credits (owner decision, November 2026): no credit is shown on or under
+// any photo. Every Creative Commons photo (Wikimedia Commons, `source: 'local'`
+// in src/data/photos.mjs) is credited here with its author, licence and source,
+// and the pages it appears on. Built by build.mjs after the other pages.
+const LICENCES = {
+  'CC BY 2.0': 'https://creativecommons.org/licenses/by/2.0/',
+  'CC BY 4.0': 'https://creativecommons.org/licenses/by/4.0/',
+  'CC BY-SA 2.0': 'https://creativecommons.org/licenses/by-sa/2.0/',
+  'CC BY-SA 3.0': 'https://creativecommons.org/licenses/by-sa/3.0/',
+  'CC BY-SA 4.0': 'https://creativecommons.org/licenses/by-sa/4.0/',
+  CC0: 'https://creativecommons.org/publicdomain/zero/1.0/',
+};
+
+export function photoCreditsPage(pages) {
+  const listed = pages.filter((pg) => !pg.path.endsWith('.html') && !pg.path.includes('thanks'));
+  const items = Object.entries(photos)
+    .filter(([, p]) => p.source === 'local' && p.credit)
+    .map(([key, p]) => {
+      if (!LICENCES[p.license]) throw new Error(`No licence URL for "${p.license}" (${key}). Add it to LICENCES in src/pages/misc.mjs.`);
+      const on = listed.filter((pg) => pg.body.includes(`/photos/${p.file}-`));
+      return `<li class="credit">
+  <img src="/photos/${p.file}-480.webp" width="480" height="320" alt="${esc(p.alt)}" loading="lazy" decoding="async">
+  <div>
+    <p class="credit-place">${esc(p.location)}</p>
+    <p class="credit-meta"><span>By</span> <span>${esc(p.credit)}</span> <span aria-hidden="true">·</span> <a href="${LICENCES[p.license]}" rel="license noopener">${esc(p.license)}</a> <span aria-hidden="true">·</span> <a href="${esc(p.page)}" rel="noopener">Source on Wikimedia Commons</a></p>
+    ${on.length ? `<p class="credit-meta"><span>Used on</span> ${on.map((pg) => `<a href="${pg.path}">${esc(pg.title)}</a>`).join(' <span aria-hidden="true">·</span> ')}</p>` : ''}
+  </div>
+</li>`;
+    });
+  return {
+    path: '/photo-credits/',
+    title: 'Photo credits',
+    description: 'Who took the photographs on the Mosi Travel website, the licence each one is used under and where to find the original.',
+    body: `${pageHead({ eyebrow: 'Legal', title: 'Photo credits', lede: 'Who took the photographs on this site, the licence each one is used under and where to find the original.' })}
+<section class="section-tight wrap"><div class="prose">
+<p>Where Unsplash and Pexels had no photograph of a place, we use photographs from Wikimedia Commons under Creative Commons licences. Their photographers and licences are listed here rather than on the photos themselves.</p>
+<ul class="credits-list">
+${items.join('\n')}
+</ul>
+<p>All other photographs on this site come from Unsplash and Pexels and are used under the <a href="https://unsplash.com/license" rel="noopener">Unsplash licence</a> and the <a href="https://www.pexels.com/license/" rel="noopener">Pexels licence</a>.</p>
 </div></section>`,
   };
 }

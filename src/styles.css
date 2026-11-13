@@ -342,3 +342,12 @@ fieldset { border: 0; padding: 0; margin: 0; }
 }
 .js .nav-list .lang-list a { border-bottom: 0; display: inline-flex; }
 @media (max-width: 63.99rem) { .js .lang-switch { margin: 0.75rem 0 0; } }
+
+/* Photo credits page */
+.credits-list { list-style: none; padding: 0; margin: 2.5rem 0; border-top: 1px solid var(--graniteLine); }
+.credits-list .credit { display: grid; grid-template-columns: 7rem minmax(0, 1fr); gap: 1.25rem; padding: 1.5rem 0; margin: 0; border-bottom: 1px solid var(--graniteLine); }
+@media (min-width: 40rem) { .credits-list .credit { grid-template-columns: 10rem minmax(0, 1fr); } }
+.credits-list img { width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; }
+.credits-list p { margin: 0; }
+.credit-place { font-weight: 600; }
+.credit-meta { font-size: 0.92rem; margin-top: 0.35rem !important; overflow-wrap: anywhere; }
